@@ -1,5 +1,5 @@
 #!/bin/bash
-#AUTOR:Ivan Gaspar
+#AUTOR:Ivan Gaspars
 #Contacto: igaspar@anzen.com.mx
 
 LC_ALL=C
