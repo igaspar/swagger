@@ -8,7 +8,7 @@ node {
    notifications = [
         email : "adelgado@anzen.com.mx"    
     ]
-   
+   echo 'aaron' 
    // -- Configura variables
    echo 'Configurando variables'
     def mvnHome = tool 'M3'
