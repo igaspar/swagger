@@ -1,7 +1,9 @@
 #!groovy
 node {
+   
+   
    // ------------------------------------
-   // -- ETAPA: Compilar
+   // -- ETAPA: Compilardd
    // ------------------------------------
    stage 'Compilar'
    
