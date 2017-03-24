@@ -5,22 +5,22 @@ node {
    // ------------------------------------
    stage 'Compilar'
    
-   notifications = [
-        email : "adelgado@anzen.com.mx"    
-    ]
-   echo 'aaron' 
-   // -- Configura variables
    echo 'Configurando variables'
-    def mvnHome = tool 'M3'
+   def mvnHome = tool 'M3'
    env.PATH = "${mvnHome}/bin:${env.PATH}"
-   echo "var mvnHome='${mvnHome}'"
-   echo "var env.PATH='${env.PATH}'"
+   echo "variable mvnHome mvnHome='${mvnHome}'"
+   echo "variable PATH env.PATH='${env.PATH}'"
+    // -- Descarga código desde SCM
+   echo 'Descargando código de SCM'
+   sh 'rm -rf *'
+   checkout scm
    
- 
    
    // -- Compilando
    echo 'Compilando aplicación'
   
+sudo ./generaMockup.sh apicorebancariomock ApiCoreBancario.yaml 8080
+ 
    
    // ------------------------------------
    // -- ETAPA: Test
