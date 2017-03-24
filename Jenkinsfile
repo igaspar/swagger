@@ -5,6 +5,10 @@ node {
    // ------------------------------------
    stage 'Compilar'
    
+   notifications = [
+        email : "adelgado@anzen.com.mx"    
+    ]
+   
    // -- Configura variables
    echo 'Configurando variables'
     def mvnHome = tool 'M3'
