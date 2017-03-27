@@ -13,6 +13,7 @@ node {
    //checkout scm
    sh 'docker -v'
    sh 'java -version'
+   sh './generaMockup.sh apicorebancariomock  ApiCoreBancario.yaml 8080'
    
    // -- Compilando
    echo 'Compilando aplicación'
