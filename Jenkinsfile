@@ -9,8 +9,8 @@ node {
    
    echo 'Configurando variables'
   
-   //sh 'rm -rf *'
-   //checkout scm
+   sh 'rm -rf *'
+   checkout scm
    sh 'docker -v'
    sh 'java -version'
    sh './generaMockup.sh apicorebancariomock  ApiCoreBancario.yaml 8080'
