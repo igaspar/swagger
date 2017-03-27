@@ -9,7 +9,7 @@ node {
    
    echo 'Configurando variables'
   
-   sh 'rm -rf *'
+   sh 'rm ApiCoreBancario.yaml'
    checkout scm
    sh 'docker -v'
    sh 'java -version'
