@@ -12,7 +12,7 @@ node {
    //sh 'rm -rf *'
    //checkout scm
    sh 'docker -v'
-   sh 'java version'
+   sh 'java -version'
    
    // -- Compilando
    echo 'Compilando aplicación'
