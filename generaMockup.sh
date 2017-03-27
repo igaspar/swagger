@@ -1,5 +1,5 @@
 #!/bin/bash
-#AUTOR:Ivan Gaspars
+#AUTOR:Ivan Gaspar
 #Contacto: igaspar@anzen.com.mx
 
 LC_ALL=C
@@ -31,8 +31,15 @@ sed -i -e "s/PROJECT/$1/g" mockup/Dockerfile
 sed -i -e "s/8080/$3/g" mockup/Dockerfile
 sed -i -e "s/8080/$3/g" mockup/$1/index.js
 cd mockup
+
+docker stop  $(docker ps -a -q)
+docker rm  $(docker ps -a -q)
+
+
 docker build -t mockup_anzen/$1 .
 rm Dockerfile
+docker run -p 8080:8080 -d mockup_anzen/apicorebancariomock
+
 echo "========================================================="
 echo "==  docker run -p $3:$3 -d mockup_anzen/$1  =="
 echo "========================================================="

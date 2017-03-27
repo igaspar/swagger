@@ -253,6 +253,26 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "Login"
+  /minio:
+    get:
+      tags:
+      - "Minio"
+      summary: "/minio"
+      description: "Servicio rest que nos trae las credenciales para el acceso a minio."
+      operationId: "minioGET"
+      parameters: []
+      responses:
+        200:
+          description: "An array of products"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ProductRes"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Minio"
 definitions:
   loginEstatico-res:
     properties:
@@ -796,6 +816,21 @@ definitions:
         type: "string"
         example: "asd123qwe123"
     description: "Generacion de clave dinamica"
+  ProductRes:
+    type: "object"
+    properties:
+      accesskey:
+        type: "string"
+        example: "Q3AM3UQ867SPQQA43P2F"
+        description: "V9LKMYLJN5HTJZRXAVPZ"
+      secretket:
+        type: "string"
+        example: "zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG"
+        description: "FFoH7i4W+Ipn2fO4Q2OMiD9bkLH7B5fNFlaJngLQ"
+      url:
+        type: "string"
+        example: "https://play.minio.io:9000"
+        description: "https://play.minio.io:9000"
   Error:
     properties:
       Error:
