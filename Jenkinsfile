@@ -8,12 +8,7 @@ node {
    stage 'Compilar'
    
    echo 'Configurando variables'
-   def mvnHome = tool 'M3'
-   env.PATH = "${mvnHome}/bin:${env.PATH}"
-   echo "variable mvnHome mvnHome='${mvnHome}'"
-   echo "variable PATH env.PATH='${env.PATH}'"
-    // -- Descarga código desde SCM
-   echo 'Descargando código de SCM'
+  
    sh 'rm -rf *'
    checkout scm
    
