@@ -16,6 +16,7 @@ node {
    sh 'docker -v'
    sh 'java -version'
    sh ' chmod 777 -R .'
+   sh 'sudo chmod 777 /var/run/docker.sock'
    sh './generaMockup.sh apicorebancariomock  ApiCoreBancario.yaml 8080'
    
    // -- Compilando
