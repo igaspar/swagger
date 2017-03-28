@@ -22,8 +22,8 @@ node {
    // -- Compilando
    echo 'Compilando aplicación'
   
- //sh './generaMockup.sh apicorebancariomock ApiCoreBancario.yaml 8080'
- //sh  'docker run -p 8080:8080 -d mockup_anzen/apicorebancariomock'
+ sh './generaMockup.sh apicorebancariomock ApiCoreBancario.yaml 8080'
+ sh  'docker run -p 8080:8080 -d mockup_anzen/apicorebancariomock'
  
    
    // ------------------------------------
