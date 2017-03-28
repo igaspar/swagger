@@ -17,9 +17,7 @@ node {
    sh 'java -version'
    sh ' chmod 777 -R .'
    
-   docker stop  $(docker ps -a -q)
-   docker rm  $(docker ps -a -q)
-   docker rmi  $(docker images ps -a -q)
+  
 
    sh './generaMockup.sh apicorebancariomock  ApiCoreBancario.yaml 8080'
    
