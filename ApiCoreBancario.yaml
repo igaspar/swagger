@@ -250,7 +250,7 @@ paths:
   /minio:
     get:
       tags:
-        - Minio
+        - MinioReynado
       summary: /minio
       description: Servicio rest que nos trae las credenciales para el acceso a minio. 
       responses:
