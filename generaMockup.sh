@@ -36,8 +36,8 @@ docker stop  $(docker ps -a -q)
 docker rm  $(docker ps -a -q)
 
 
-#docker build -t mockup_anzen/$1 .
-#rm Dockerfile
+docker build -t mockup_anzen/$1 .
+rm Dockerfile
 docker run -p 8080:8080 -d mockup_anzen/apicorebancariomock
 
 echo "========================================================="
