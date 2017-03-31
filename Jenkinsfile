@@ -8,7 +8,7 @@ node {
  
   stage 'Desplegando'
   
-  sh ' killall node'	
+ 
   sh 'npm install'
   sh 'nohup  node start &'
 
