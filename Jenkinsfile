@@ -7,6 +7,7 @@ node {
 	 checkout scm
  
   stage 'Desplegando'
+  sh 'sudo killall node'	
   sh 'npm install'
   sh 'nohup  npm start &'
 
