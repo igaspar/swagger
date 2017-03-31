@@ -256,7 +256,7 @@ paths:
   /minio:
     get:
       tags:
-      - "MinioReynado"
+      - "Minio"
       summary: "/minio"
       description: "Servicio rest que nos trae las credenciales para el acceso a minio."
       operationId: "minioGET"
