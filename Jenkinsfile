@@ -10,6 +10,7 @@ node {
   
  
   sh 'npm install'
+  sh 'npm install'
   sh 'nohup  node start &'
 
 }
