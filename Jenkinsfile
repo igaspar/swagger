@@ -9,7 +9,7 @@ node {
   stage 'Desplegando'
   
  
-  sh ' sudo killall node'
+  sh 'killall node'
   sh 'npm install'
   sh 'nohup  npm start &'
 
