@@ -8,7 +8,7 @@ node {
  
   stage 'Desplegando'
   
-  sh 'kill -9 $(ps aux | grep '\snode\s' | awk '{print $2}')'	
+  sh ' killall node'	
   sh 'npm install'
   sh 'nohup  node start &'
 
