@@ -253,11 +253,37 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "Login"
+  /generaArchivo:
+    post:
+      tags:
+      - "Generaarchivo"
+      summary: "/Generaarchivo"
+      description: "Servicio que realiza una consulta a la bd"
+      operationId: "consulta"
+      parameters:
+      - in: "body"
+        name: "primer login"
+        description: "consulta"
+        required: false
+        schema:
+          $ref: "#/definitions/consultaArchivo-in"
+      responses:
+        200:
+          description: "An array of products"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Datos-Archivo-res"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Generaarchivo"
   /minio:
     get:
       tags:
       - "Minio"
-      summary: "/minio"
+      summary: "/Minio"
       description: "Servicio rest que nos trae las credenciales para el acceso a minio."
       operationId: "minioGET"
       parameters: []
@@ -272,7 +298,7 @@ paths:
           description: "Unexpected error"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "MinioReynado"
+      x-swagger-router-controller: "Minio"
 definitions:
   loginEstatico-res:
     properties:
@@ -831,6 +857,42 @@ definitions:
         type: "string"
         example: "https://play.minio.io:9000"
         description: "https://play.minio.io:9000"
+  consultaArchivo-in:
+    properties:
+      nombreArchivo:
+        type: "string"
+        example: "Nomina Agosto"
+      cuentaOrigen:
+        type: "string"
+        example: "cuenta Nomina-0654 $1,889.098"
+      descripcion:
+        type: "string"
+        example: "pago nomina"
+      aplicacion:
+        type: "string"
+        example: "10/04/2017"
+      secuencial:
+        type: "integer"
+        example: 3
+    description: "Realiza una consulta"
+  Datos-Archivo-res:
+    properties:
+      nombreArchivo:
+        type: "string"
+        example: "Segunda Quincena de Julio 2015"
+      cuentaOrigen:
+        type: "string"
+        example: "cuenta ahorro-6025.000"
+      descripcion:
+        type: "string"
+        example: "pago nomina segunda quincena"
+      Fechaaplicacion:
+        type: "string"
+        example: "10/04/2017"
+      secuencial:
+        type: "integer"
+        example: 40
+    description: "Realiza una consulta"
   Error:
     properties:
       Error:
