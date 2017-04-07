@@ -16,7 +16,7 @@ paths:
   /LoginEstatico:
     post:
       tags:
-      - "Login Manuel"
+      - "Login"
       summary: "/Login"
       description: "Login por primera vez"
       operationId: "loginEstaticoPOST"
@@ -256,8 +256,8 @@ paths:
   /generaArchivo:
     post:
       tags:
-      - "Generaarchivo"
-      summary: "/Generaarchivo"
+      - "Reporte"
+      summary: "/Reporte"
       description: "Servicio que realiza una consulta a la bd"
       operationId: "consulta"
       parameters:
@@ -299,7 +299,122 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "Minio"
+      
+  /FileDefinition:
+    post:
+      tags:
+      - "File Definitions"
+      summary: "/file"
+      description: "Descripcion de los campos por numero de transacion "
+      operationId: "File Definition POST"
+      parameters:
+      - in: "body"
+        name: "Definicion por tipo de transaccion "
+        description: "Respuesta de definicion de transacion"
+        required: true
+        schema:
+          $ref: "#/definitions/IDFileDefinition"
+      responses:
+        200:
+          description: "Valores por transaccion y sus caracteristicas por campo"
+          schema:
+            $ref: "#/definitions/FileDefinition"
+        403:
+          description: "Layout no encontrado"
+          schema:
+            $ref: "#/definitions/ErrorFile"
+      x-swagger-router-controller: "Error de Archivo"
 definitions:
+  FileDefinition:
+    properties:
+      IdFileType:
+        type: "integer"
+        example: "1"
+      FileType:
+        type: "string"
+        example: "1"
+      Side:
+        type: "integer"
+        example: "1"
+      FileLimit:
+        type: "integer"
+        example: "1"
+      IdOperationLong:
+        type: "integer"
+        example: "1"
+      FileLines::
+        type: array
+        items:
+          $ref: "#/definitions/99"
+         
+          
+          
+  99:
+    properties:
+      Unique:
+        type: "boolean"
+        example: "1"
+      Long:
+        type: "integer"
+        example: "1"
+      fielFields:
+        type: array
+        items:
+          $ref: "#/definitions/fielFields"
+          
+  fielFields:
+    properties:
+      nombre:
+        type: "string"
+        example: "1"
+      longField:
+        type: "integer"
+        example: "1"
+      start:
+        type: "integer"
+        example: "1"
+      end:
+        type: "integer"
+        example: "1"
+      format:
+        type: "string"
+        example: "1"
+      validation:
+        type: array
+        items:
+          $ref: "#/definitions/validation"
+  validation:
+    properties:
+      int:
+        type: "integer"
+        example: "1"
+      decimal:
+        type: "number"
+        example: "1"
+          
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+            
+          
+        
+  IDFileDefinition:
+    properties:
+      IdFileType:
+        type: "integer"
+        example: "1"
+        
+              
   loginEstatico-res:
     properties:
       identificador-de-sesion:
@@ -893,6 +1008,7 @@ definitions:
         type: "integer"
         example: 40
     description: "Realiza una consulta"
+    
   Error:
     properties:
       Error:
@@ -900,3 +1016,12 @@ definitions:
         example: "Error en la autenticacion"
         description: "Respuesta de Login"
     description: "Error de Respuesta dinamica"
+  ErrorFile:
+    properties:
+      Error:
+        type: "string"
+        example: "Error en la autenticacion"
+        description: "Respuesta de Login"
+    description: "Error de Respuesta dinamica"
+
+
