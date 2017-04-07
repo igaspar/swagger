@@ -300,10 +300,10 @@ paths:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "Minio"
       
-  /FileDefinition:
+  /Layout:
     post:
       tags:
-      - "File Definitions"
+      - "Layout"
       summary: "/file"
       description: "Descripcion de los campos por numero de transacion "
       operationId: "File Definition POST"
