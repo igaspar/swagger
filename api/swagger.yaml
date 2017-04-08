@@ -3,7 +3,7 @@ swagger: '2.0'
 info:
   description: Documentación de las API de la Banca Genérica
   version: 0.1.0
-  title: ANZEN
+  title: Bank API Explorer
 host: 54.215.247.221:9092
 basePath: "/PrimerLogin"
 tags:
@@ -229,11 +229,11 @@ paths:
           schema:
             "$ref": "#/definitions/Error"
       x-swagger-router-controller: Login
-  "/GeneraArchivo":
+  "/Reports":
     post:
       tags:
-      - GeneraArchivo
-      summary: "/GeneraArchivo"
+      - Reports
+      summary: "/Reports"
       description: Servicio que realiza una consulta a la bd
       operationId: consulta
       parameters:
@@ -254,7 +254,7 @@ paths:
           description: Unexpected error
           schema:
             "$ref": "#/definitions/Error"
-      x-swagger-router-controller: Generaarchivo
+      x-swagger-router-controller: Reports
   "/Minio":
     get:
       tags:
