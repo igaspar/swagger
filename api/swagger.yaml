@@ -286,7 +286,7 @@ paths:
       - in: "body"
         name: "Layout Existente y tipo de layout"
         description: "Layout"
-        required: true
+        required: false
         schema:
           $ref: "#/definitions/FileDefinition-in"
       responses:
