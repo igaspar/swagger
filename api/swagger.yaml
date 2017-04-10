@@ -287,7 +287,6 @@ paths:
       - in: body
         name: primer login
         description: Respuesta de login existente del core bancario
-        required: true
         schema:
           "$ref": "#/definitions/FileDefinition-in"
       responses:
