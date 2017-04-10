@@ -283,7 +283,7 @@ paths:
       description: "Layout"
       parameters:
       - in: body
-        name: primer login
+        name: layout
         description: Respuesta de login existente del core bancario
         schema:
           "$ref": "#/definitions/FileDefinition-in"
