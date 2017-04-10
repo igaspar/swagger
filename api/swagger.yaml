@@ -360,10 +360,12 @@ definitions:
             required:
             - 'unique'
             - 'long'
+            
             properties:
               unique:
-                type: boolean
-                example: true
+                type: string
+                items: 
+                  "$ref": "#/definitions/longunique"
               long:
                 type: integer
                 example: 1
@@ -371,6 +373,14 @@ definitions:
                 type: array
                 items: 
                   "$ref": "#/definitions/fielFields"
+  longunique:
+    properties:
+      long:
+        type: string
+        example: '1'
+      unique:
+        type: integer
+        example: '1'
   fielFields:
     properties:
       nombre:
