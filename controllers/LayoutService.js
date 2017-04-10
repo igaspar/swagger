@@ -10,17 +10,16 @@ exports.layoutPOST = function(args, res, next) {
    **/
   var examples = {};
   examples['application/json'] = [ {
-   "FileDefinition":{
+   "fileDefinition":{
       "idFileType":"1",
-      "FileType":"Layout - C",
-      "Side":"3",
-      "FileLimit":"3",
-      "FileLayout":"u",
+      "fileType":"Layout - C",
+      "side":"3",
+      "fileLimit":"3",
       "idOperationLong":"2",
-      "FileLines":{
+      "fileLines":{
           "00":{
              "unique":"true",
-             "long":"125",
+             "size":"125",
              "fileFields":[
                 {
                    "nombre":"Tipo de Registro",
@@ -29,8 +28,8 @@ exports.layoutPOST = function(args, res, next) {
                    "end":"2",
                    "format":"9",
                    "validation":{
-                      "int":2,
-                      "decimal ":0
+                      "integer":2,
+                      "decimal":0
                    }
                 }, {
                    "nombre":"Númerico de identificación del cliente",
@@ -39,18 +38,18 @@ exports.layoutPOST = function(args, res, next) {
                    "end":"14",
                    "format":"9",
                    "validation":{
-                      "int":12,
-                      "decimal ":0
+                      "integer":12,
+                      "decimal":0
                    }
                 }, {
-                   "nombre":"fecha de pago",
+                   "nombre":"Fecha de pago",
                    "longField":"6",
                    "start":"14",
                    "end":"20",
                    "format":"9",
                    "validation":{
-                      "int":6,
-                      "decimal ":0
+                      "integer":6,
+                      "decimal":0
                    }
                 }, {
                    "nombre":"Secuencial del archivo",
@@ -59,8 +58,8 @@ exports.layoutPOST = function(args, res, next) {
                    "end":"24",
                    "format":"9",
                    "validation":{
-                      "int":4,
-                      "decimal ":0
+                      "integer":4,
+                      "decimal":0
                    }
                 }, {
                    "nombre":"Nombre de la empresa",
@@ -69,8 +68,8 @@ exports.layoutPOST = function(args, res, next) {
                    "end":"60",
                    "format":"x",
                    "validation":{
-                      "int":0,
-                      "decimal ":0
+                      "integer":0,
+                      "decimal":0
                    }
                 }, {
                    "nombre":"Descripción del archivo",
@@ -79,8 +78,8 @@ exports.layoutPOST = function(args, res, next) {
                    "end":"80",
                    "format":"x",
                    "validation":{
-                      "int":0,
-                      "decimal ":0
+                      "integer":0,
+                      "decimal":0
                    }
                 }, {
                    "nombre":"Naturaleza del archivo",
@@ -89,8 +88,8 @@ exports.layoutPOST = function(args, res, next) {
                    "end":"82",
                    "format":"9",
                    "validation":{
-                      "int":2,
-                      "decimal ":0
+                      "integer":2,
+                      "decimal":0
                    }
                 }, {
                    "nombre":"Instrucciones para órdenes de pago",
@@ -99,8 +98,8 @@ exports.layoutPOST = function(args, res, next) {
                    "end":"122",
                    "format":"x",
                    "validation":{
-                      "int":0,
-                      "decimal ":0
+                      "integer":0,
+                      "decimal":0
                    }
                 }, {
                    "nombre":"Versión del Layout",
@@ -109,8 +108,8 @@ exports.layoutPOST = function(args, res, next) {
                    "end":"123",
                    "format":"x",
                    "validation":{
-                      "int":0,
-                      "decimal ":0
+                      "integer":0,
+                      "decimal":0
                    }
                 }, {
                    "nombre":"Volumen",
@@ -119,8 +118,8 @@ exports.layoutPOST = function(args, res, next) {
                    "end":"124",
                    "format":"9",
                    "validation":{
-                      "int":1,
-                      "decimal ":0
+                      "integer":1,
+                      "decimal":0
                    }
                 }, {
                    "nombre":"Características del archivo",
@@ -129,15 +128,15 @@ exports.layoutPOST = function(args, res, next) {
                    "end":"125",
                    "format":"9",
                    "validation":{
-                      "int":1,
-                      "decimal ":0
+                      "integer":1,
+                      "decimal":0
                    }
                 }
              ]
           },
           "01":{
              "unique":"false",
-             "long":"218",
+             "size":"218",
              "fileFields":[
                {
                   "nombre":"Tipo de Registro",
@@ -146,8 +145,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"2",
                   "format":"9",
                   "validation":{
-                     "int":2,
-                     "decimal ":0
+                     "integer":2,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Tipo de operación",
@@ -156,8 +155,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"3",
                   "format":"9",
                   "validation":{
-                     "int":1,
-                     "decimal ":0
+                     "integer":1,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Clave de la moneda",
@@ -166,8 +165,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"6",
                   "format":"9",
                   "validation":{
-                     "int":3,
-                     "decimal ":0
+                     "integer":3,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Importe",
@@ -176,8 +175,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"24",
                   "format":"9",
                   "validation":{
-                     "int":16,
-                     "decimal ":2
+                     "integer":16,
+                     "decimal":2
                   }
                }, {
                   "nombre":"Tipo de cuenta",
@@ -186,8 +185,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"26",
                   "format":"9",
                   "validation":{
-                     "int":2,
-                     "decimal ":0
+                     "integer":2,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Número de cuenta",
@@ -196,8 +195,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"46",
                   "format":"9",
                   "validation":{
-                     "int":20,
-                     "decimal ":0
+                     "integer":20,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Referencia Alfanumérica",
@@ -206,8 +205,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"86",
                   "format":"x",
                   "validation":{
-                     "int":0,
-                     "decimal ":0
+                     "integer":0,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Beneficiario",
@@ -216,8 +215,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"141",
                   "format":"x",
                   "validation":{
-                     "int":0,
-                     "decimal ":0
+                     "integer":0,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Instrucciones",
@@ -226,8 +225,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"181",
                   "format":"x",
                   "validation":{
-                     "int":0,
-                     "decimal ":0
+                     "integer":0,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Descripción TEF",
@@ -236,8 +235,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"205",
                   "format":"x",
                   "validation":{
-                     "int":0,
-                     "decimal ":0
+                     "integer":0,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Clave de Banco",
@@ -246,8 +245,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"208",
                   "format":"9",
                   "validation":{
-                     "int":4,
-                     "decimal ":0
+                     "integer":4,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Referencia Numérica",
@@ -256,8 +255,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"216",
                   "format":"9",
                   "validation":{
-                     "int":7,
-                     "decimal ":0
+                     "integer":7,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Plazo",
@@ -266,15 +265,15 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"218",
                   "format":"9",
                   "validation":{
-                     "int":1,
-                     "decimal ":0
+                     "integer":1,
+                     "decimal":0
                   }
                }
              ]
           },
           "99":{
              "unique":"true",
-             "long":"53",
+             "size":"53",
              "fileFields":[
                {
                   "nombre":"Tipo de Registro",
@@ -283,8 +282,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"2",
                   "format":"9",
                   "validation":{
-                     "int":2,
-                     "decimal ":0
+                     "integer":2,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Clave de la moneda",
@@ -293,8 +292,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"5",
                   "format":"9",
                   "validation":{
-                     "int":3,
-                     "decimal ":0
+                     "integer":3,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Número de abonos",
@@ -303,8 +302,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"11",
                   "format":"9",
                   "validation":{
-                     "int":6,
-                     "decimal ":0
+                     "integer":6,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Importe total de abonos",
@@ -313,8 +312,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"29",
                   "format":"9",
                   "validation":{
-                     "int":16,
-                     "decimal ":2
+                     "integer":16,
+                     "decimal":2
                   }
                }, {
                   "nombre":"Número de cargos",
@@ -323,8 +322,8 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"35",
                   "format":"9",
                   "validation":{
-                     "int":6,
-                     "decimal ":0
+                     "integer":6,
+                     "decimal":0
                   }
                }, {
                   "nombre":"Importe total de cargos",
@@ -333,15 +332,16 @@ exports.layoutPOST = function(args, res, next) {
                   "end":"53",
                   "format":"9",
                   "validation":{
-                     "int":16,
-                     "decimal ":2
+                     "integer":16,
+                     "decimal":2
                   }
                }
              ]
           }
       }
    }
-} ];
+}
+];
   if (Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
