@@ -16,7 +16,7 @@ paths:
   "/LoginEstatico":
     post:
       tags:
-      - Login
+      - Login Manuel
       summary: "/Login"
       description: Login por primera vez
       operationId: loginEstaticoPOST
@@ -281,8 +281,6 @@ paths:
       - Layout
       summary: "/Layout"
       description: "Layout"
-      consumes:
-      - application/formData
       parameters:
       - in: body
         name: primer login
