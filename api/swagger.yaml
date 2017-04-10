@@ -310,8 +310,6 @@ paths:
       - in: "body"
         name: "Existe layout"
         description: "Layout"
-         consumes:
-        - application/x-www-form-urlencoded
         required: true
         schema:
           $ref: "#/definitions/FileDefinition-in"
