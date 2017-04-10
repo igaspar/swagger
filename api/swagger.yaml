@@ -16,7 +16,7 @@ paths:
   "/LoginEstatico":
     post:
       tags:
-      - Login Manuel
+      - Login
       summary: "/Login"
       description: Login por primera vez
       operationId: loginEstaticoPOST
