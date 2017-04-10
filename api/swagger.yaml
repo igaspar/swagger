@@ -289,7 +289,7 @@ paths:
           "$ref": "#/definitions/FileDefinition-in"
       responses:
         '200':
-          description: Cliente existente y hace el cambio de la clave estatica
+          description: "ss"
           schema:
             "$ref": "#/definitions/FileDefinition"
       x-swagger-router-controller: Layout
