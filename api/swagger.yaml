@@ -14,6 +14,7 @@ tags:
     url: "http://localhost:9092/docs"
 paths:
   /LoginEstatico:
+    x-swagger-router-controller: "Login"
     post:
       tags:
       - "Login"
@@ -36,7 +37,6 @@ paths:
           description: "Cliente no encontrado"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Login"
   /LoginDinamico:
     post:
       tags:
@@ -256,14 +256,14 @@ paths:
   /GeneraArchivo:
     post:
       tags:
-      - "Generaarchivo"
-      summary: "/Generaarchivo"
+      - "GeneraArchivo"
+      summary: "/GeneraArchivo"
       description: "Servicio que realiza una consulta a la bd"
       operationId: "consulta"
       parameters:
       - in: "body"
         name: "primer login"
-        description: "consulta"
+        description: "GeneraArchivo"
         required: false
         schema:
           $ref: "#/definitions/consultaArchivo-in"
@@ -278,7 +278,7 @@ paths:
           description: "Unexpected error"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Generaarchivo"
+      x-swagger-router-controller: "GeneraArchivo"
   /Minio:
     get:
       tags:
@@ -299,7 +299,154 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "Minio"
+  /Layout:
+    post:
+      tags:
+      - "Layout"
+      summary: "/Layout"
+      description: "Servicio que realiza una consulta a la bd"
+      operationId: "consultas"
+      parameters:
+      - in: "body"
+        name: "ddddddd login"
+        description: "Layout"
+        required: false
+        schema:
+          $ref: "#/definitions/FileDefinition-in"
+      responses:
+        200:
+          description: "An array of products"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/FileDefinition-res"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Layout"
+            
+            
+            
+            
+    
+        
 definitions:
+  FileDefinition-in:
+    properties:
+      IdFileType:
+        type: integer
+        example: '1'
+
+  FileDefinition-res:
+    properties:
+      idFileType:
+        type: integer
+        example: '1'
+      FileType:
+        type: string
+        example: '1'
+      Side:
+        type: integer
+        example: '1'
+      FileLimit:
+        type: integer
+        example: '1'
+      IdOperationLong:
+        type: integer
+        example: '1'
+      FileLines:
+                type: array
+                items: 
+                  "$ref": "#/definitions/FileLines"
+  FileLines:
+        required:
+        - 'OO'
+        - 'O1'
+        - '99'
+        properties:
+          OO:
+            required:
+            - 'unique'
+            - 'long'
+            properties:
+              unique:
+                type: boolean
+                example: "true"
+              long:
+                type: string
+                example: 1
+              fieldFields:
+                type: array
+                items: 
+                  "$ref": "#/definitions/fielFields"
+          O1:
+            required:
+            - 'unique'
+            - 'long'
+            properties:
+              unique:
+                type: boolean
+                example: true
+              long:
+                type: integer
+                example: 1
+              fieldFields:
+                type: array
+                items: 
+                  "$ref": "#/definitions/fielFields"
+          99:
+            required:
+            - 'unique'
+            properties:
+              unique:
+                type: string
+                items: 
+                  "$ref": "#/definitions/longunique"
+              fieldFields:
+                type: array
+                items: 
+                  "$ref": "#/definitions/fielFields"
+                  
+  longunique:
+    properties:
+      long:
+        type: string
+        example: '1'
+      unique:
+        type: integer
+        example: '1'
+        
+  fielFields:
+    properties:
+      nombre:
+        type: string
+        example: '1'
+      longField:
+        type: integer
+        example: '1'
+      start:
+        type: integer
+        example: '1'
+      end:
+        type: integer
+        example: '1'
+      format:
+        type: string
+        example: '1'
+      validation:
+        type: array
+        items:
+          "$ref": "#/definitions/validation"
+  validation:
+    properties:
+      int:
+        type: integer
+        example: '1'
+      decimal:
+        type: number
+        example: '1'
+
   loginEstatico-res:
     properties:
       identificador-de-sesion:
