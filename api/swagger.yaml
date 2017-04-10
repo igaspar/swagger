@@ -257,7 +257,7 @@ paths:
   /GeneraArchivo:
     post:
       tags:
-      - "GeneraArchivo"
+      - "ReportFile"
       summary: "/GeneraArchivo"
       description: "Servicio que realiza una consulta a la bd"
       operationId: "consulta"
