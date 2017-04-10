@@ -4,14 +4,14 @@ info:
   description: "Documentación de las API de la Banca Genérica"
   version: "0.1.0"
   title: "ANZEN"
-host: "54.215.247.221:9092"
-basePath: "/"
+host: "localhost:9092"
+basePath: "/PrimerLogin"
 tags:
 - name: "Core Bancario"
   description: "Primer Login (Dinámico  y Estático)"
   externalDocs:
     description: "Primer Login"
-    url: "http://54.215.247.221:9092/docs"
+    url: "http://localhost:9092/docs"
 paths:
   /LoginEstatico:
     post:
@@ -19,7 +19,6 @@ paths:
       - "Login"
       summary: "/Login"
       description: "Login por primera vez"
-      operationId: "loginEstaticoPOST"
       parameters:
       - in: "body"
         name: "primer login"
@@ -43,7 +42,6 @@ paths:
       - "Login"
       summary: "/Login"
       description: "Login por primera vez"
-      operationId: "loginDinamicoPOST"
       parameters:
       - in: "body"
         name: "primer login"
@@ -60,14 +58,12 @@ paths:
           description: "Cliente no encontrado"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Login"
   /ValidacionDeLoginDinamico:
     post:
       tags:
       - "Login"
       summary: "/LoginValidacionDinamico"
       description: "Valida Login dinamico"
-      operationId: "validacionDeLoginDinamicoPOST"
       parameters:
       - in: "body"
         name: "valor dinamico"
@@ -84,14 +80,12 @@ paths:
           description: "Cliente no encontrado"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Login"
   /CuentasPropias:
     post:
       tags:
       - "Login"
       summary: "/Login"
       description: "Login por primera vez"
-      operationId: "cuentasPropiasPOST"
       parameters:
       - in: "body"
         name: "primer login"
@@ -108,14 +102,12 @@ paths:
           description: "Cliente no encontrado"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Login"
   /CuentasATerceros:
     post:
       tags:
       - "Login"
       summary: "/Login"
       description: "Login por primera vez"
-      operationId: "cuentasATercerosPOST"
       parameters:
       - in: "body"
         name: "primer login"
@@ -132,14 +124,12 @@ paths:
           description: "Cliente no encontrado"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Login"
   /ConsultaOrdenesPago:
     post:
       tags:
       - "Login"
       summary: "/Login"
       description: "Login por primera vez"
-      operationId: "consultaOrdenesPagoPOST"
       parameters:
       - in: "body"
         name: "primer login"
@@ -156,14 +146,12 @@ paths:
           description: "Cliente no encontrado"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Login"
   /CuentasInterbancarias:
     post:
       tags:
       - "Login"
       summary: "/Login"
       description: "Login por primera vez"
-      operationId: "cuentasInterbancariasPOST"
       parameters:
       - in: "body"
         name: "primer login"
@@ -180,14 +168,12 @@ paths:
           description: "Cliente no encontrado"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Login"
   /ConsultaOrdenesInternacionales:
     post:
       tags:
       - "Login"
       summary: "/Login"
       description: "Login por primera vez"
-      operationId: "consultaOrdenesInternacionalesPOST"
       parameters:
       - in: "body"
         name: "primer login"
@@ -204,14 +190,12 @@ paths:
           description: "Cliente no encontrado"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Login"
   /ConsultaEstablecimiento:
     post:
       tags:
       - "Login"
       summary: "/Login"
       description: "Login por primera vez"
-      operationId: "consultaEstablecimientoPOST"
       parameters:
       - in: "body"
         name: "primer login"
@@ -228,14 +212,12 @@ paths:
           description: "Cliente no encontrado"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Login"
   /Logout:
     post:
       tags:
       - "Login"
       summary: "/Login"
       description: "Login por primera vez"
-      operationId: "logoutPOST"
       parameters:
       - in: "body"
         name: "primer login"
@@ -252,14 +234,12 @@ paths:
           description: "Cliente no encontrado"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Login"
   /GeneraArchivo:
     post:
       tags:
-      - "ReportFile"
+      - "GeneraArchivo"
       summary: "/GeneraArchivo"
       description: "Servicio que realiza una consulta a la bd"
-      operationId: "generaArchivoPOST"
       parameters:
       - in: "body"
         name: "primer login"
@@ -278,14 +258,12 @@ paths:
           description: "Unexpected error"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "GeneraArchivo"
   /Minio:
     get:
       tags:
       - "Minio"
       summary: "/Minio"
       description: "Servicio rest que nos trae las credenciales para el acceso a minio."
-      operationId: "minioGET"
       parameters: []
       responses:
         200:
@@ -298,19 +276,17 @@ paths:
           description: "Unexpected error"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Minio"
   /Layout:
     post:
       tags:
       - "Layout"
       summary: "/Layout"
-      description: "Servicio que realiza una consulta a la bd"
-      operationId: "layoutPOST"
+      description: "Servicio que regresa datos del tipo de layout"
       parameters:
       - in: "body"
-        name: "Existe layout"
+        name: "Layout Existente y tipo de layout"
         description: "Layout"
-        required: false
+        required: true
         schema:
           $ref: "#/definitions/FileDefinition-in"
       responses:
@@ -324,7 +300,6 @@ paths:
           description: "Unexpected error"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Layout"
 definitions:
   FileDefinition-in:
     properties:
