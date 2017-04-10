@@ -5,7 +5,7 @@ info:
   version: "0.1.0"
   title: "ANZEN"
 host: "54.215.247.221:9092"
-basePath: "/PrimerLogin"
+basePath: "/"
 tags:
 - name: "Core Bancario"
   description: "Primer Login (Dinámico  y Estático)"
