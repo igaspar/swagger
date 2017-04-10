@@ -4,7 +4,7 @@ info:
   description: "Documentación de las API de la Banca Genérica"
   version: "0.1.0"
   title: "ANZEN"
-host: "http://54.215.247.221:9092"
+host: "54.215.247.221:9092"
 basePath: "/PrimerLogin"
 tags:
 - name: "Core Bancario"
@@ -286,7 +286,7 @@ paths:
       - in: "body"
         name: "Layout Existente y tipo de layout"
         description: "Layout"
-        required: false
+        required: true
         schema:
           $ref: "#/definitions/FileDefinition-in"
       responses:
