@@ -14,7 +14,6 @@ tags:
     url: "http://localhost:9092/docs"
 paths:
   /LoginEstatico:
-    x-swagger-router-controller: "Login"
     post:
       tags:
       - "Login"
@@ -37,6 +36,8 @@ paths:
           description: "Cliente no encontrado"
           schema:
             $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Login"
+    x-swagger-router-controller: "Login"
   /LoginDinamico:
     post:
       tags:
@@ -325,128 +326,78 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "Layout"
-            
-            
-            
-            
-    
-        
 definitions:
   FileDefinition-in:
     properties:
       IdFileType:
-        type: integer
-        example: '1'
-
+        type: "integer"
+        example: 1
   FileDefinition-res:
     properties:
       idFileType:
-        type: integer
-        example: '1'
+        type: "integer"
+        example: 1
       FileType:
-        type: string
-        example: '1'
+        type: "string"
+        example: "1"
       Side:
-        type: integer
-        example: '1'
+        type: "integer"
+        example: 1
       FileLimit:
-        type: integer
-        example: '1'
+        type: "integer"
+        example: 1
       IdOperationLong:
-        type: integer
-        example: '1'
+        type: "integer"
+        example: 1
       FileLines:
-                type: array
-                items: 
-                  "$ref": "#/definitions/FileLines"
+        type: "array"
+        items:
+          $ref: "#/definitions/FileLines"
   FileLines:
-        required:
-        - 'OO'
-        - 'O1'
-        - '99'
-        properties:
-          OO:
-            required:
-            - 'unique'
-            - 'long'
-            properties:
-              unique:
-                type: boolean
-                example: "true"
-              long:
-                type: string
-                example: 1
-              fieldFields:
-                type: array
-                items: 
-                  "$ref": "#/definitions/fielFields"
-          O1:
-            required:
-            - 'unique'
-            - 'long'
-            properties:
-              unique:
-                type: boolean
-                example: true
-              long:
-                type: integer
-                example: 1
-              fieldFields:
-                type: array
-                items: 
-                  "$ref": "#/definitions/fielFields"
-          99:
-            required:
-            - 'unique'
-            properties:
-              unique:
-                type: string
-                items: 
-                  "$ref": "#/definitions/longunique"
-              fieldFields:
-                type: array
-                items: 
-                  "$ref": "#/definitions/fielFields"
-                  
+    properties:
+      99:
+        $ref: "#/definitions/FileLines_99"
+      OO:
+        $ref: "#/definitions/FileLines_OO"
+      O1:
+        $ref: "#/definitions/FileLines_OO"
   longunique:
     properties:
       long:
-        type: string
-        example: '1'
+        type: "string"
+        example: "1"
       unique:
-        type: integer
-        example: '1'
-        
+        type: "integer"
+        example: 1
   fielFields:
     properties:
       nombre:
-        type: string
-        example: '1'
+        type: "string"
+        example: "1"
       longField:
-        type: integer
-        example: '1'
+        type: "integer"
+        example: 1
       start:
-        type: integer
-        example: '1'
+        type: "integer"
+        example: 1
       end:
-        type: integer
-        example: '1'
+        type: "integer"
+        example: 1
       format:
-        type: string
-        example: '1'
+        type: "string"
+        example: "1"
       validation:
-        type: array
+        type: "array"
         items:
-          "$ref": "#/definitions/validation"
+          $ref: "#/definitions/validation"
   validation:
     properties:
       int:
-        type: integer
-        example: '1'
+        type: "integer"
+        example: 1
       decimal:
-        type: number
-        example: '1'
-
+        type: "number"
+        example: 1
   loginEstatico-res:
     properties:
       identificador-de-sesion:
@@ -1047,3 +998,32 @@ definitions:
         example: "Error en la autenticacion"
         description: "Respuesta de Login"
     description: "Error de Respuesta dinamica"
+  FileLines_99:
+    required:
+    - "long"
+    - "unique"
+    properties:
+      unique:
+        type: "string"
+      long:
+        type: "integer"
+        example: 1
+      fieldFields:
+        type: "array"
+        items:
+          $ref: "#/definitions/fielFields"
+  FileLines_OO:
+    required:
+    - "long"
+    - "unique"
+    properties:
+      unique:
+        type: "boolean"
+        example: true
+      long:
+        type: "integer"
+        example: 1
+      fieldFields:
+        type: "array"
+        items:
+          $ref: "#/definitions/fielFields"
