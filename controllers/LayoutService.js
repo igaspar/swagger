@@ -32,7 +32,7 @@ exports.layoutPOST = function(args, res, next) {
                       "decimal":0
                    }
                 }, {
-                   "nombre":"Númerico de identificación del cliente",
+                   "nombre":"Numerico de identificacion del cliente",
                    "longField":"12",
                    "start":"2",
                    "end":"14",
@@ -48,8 +48,7 @@ exports.layoutPOST = function(args, res, next) {
                    "end":"20",
                    "format":"9",
                    "validation":{
-                      "integer":6,
-                      "decimal":0
+                      "dateFormat":"ddmmaa"
                    }
                 }, {
                    "nombre":"Secuencial del archivo",
@@ -72,7 +71,7 @@ exports.layoutPOST = function(args, res, next) {
                       "decimal":0
                    }
                 }, {
-                   "nombre":"Descripción del archivo",
+                   "nombre":"Descripcion del archivo",
                    "longField":"20",
                    "start":"60",
                    "end":"80",
@@ -92,7 +91,7 @@ exports.layoutPOST = function(args, res, next) {
                       "decimal":0
                    }
                 }, {
-                   "nombre":"Instrucciones para órdenes de pago",
+                   "nombre":"Instrucciones para ordenes de pago",
                    "longField":"40",
                    "start":"82",
                    "end":"122",
@@ -102,7 +101,7 @@ exports.layoutPOST = function(args, res, next) {
                       "decimal":0
                    }
                 }, {
-                   "nombre":"Versión del Layout",
+                   "nombre":"Version del Layout",
                    "longField":"1",
                    "start":"122",
                    "end":"123",
@@ -122,7 +121,7 @@ exports.layoutPOST = function(args, res, next) {
                       "decimal":0
                    }
                 }, {
-                   "nombre":"Características del archivo",
+                   "nombre":"Caracteristicas del archivo",
                    "longField":"1",
                    "start":"124",
                    "end":"125",
@@ -149,7 +148,7 @@ exports.layoutPOST = function(args, res, next) {
                      "decimal":0
                   }
                }, {
-                  "nombre":"Tipo de operación",
+                  "nombre":"Tipo de operacion",
                   "longField":"1",
                   "start":"2",
                   "end":"3",
@@ -189,7 +188,7 @@ exports.layoutPOST = function(args, res, next) {
                      "decimal":0
                   }
                }, {
-                  "nombre":"Número de cuenta",
+                  "nombre":"Numero de cuenta",
                   "longField":"20",
                   "start":"26",
                   "end":"46",
@@ -199,7 +198,7 @@ exports.layoutPOST = function(args, res, next) {
                      "decimal":0
                   }
                }, {
-                  "nombre":"Referencia Alfanumérica",
+                  "nombre":"Referencia Alfanumerica",
                   "longField":"40",
                   "start":"46",
                   "end":"86",
@@ -229,7 +228,7 @@ exports.layoutPOST = function(args, res, next) {
                      "decimal":0
                   }
                }, {
-                  "nombre":"Descripción TEF",
+                  "nombre":"Descripcion TEF",
                   "longField":"24",
                   "start":"181",
                   "end":"205",
@@ -249,7 +248,7 @@ exports.layoutPOST = function(args, res, next) {
                      "decimal":0
                   }
                }, {
-                  "nombre":"Referencia Numérica",
+                  "nombre":"Referencia Numerica",
                   "longField":"7",
                   "start":"209",
                   "end":"216",
@@ -296,7 +295,7 @@ exports.layoutPOST = function(args, res, next) {
                      "decimal":0
                   }
                }, {
-                  "nombre":"Número de abonos",
+                  "nombre":"Numero de abonos",
                   "longField":"6",
                   "start":"5",
                   "end":"11",
@@ -316,7 +315,7 @@ exports.layoutPOST = function(args, res, next) {
                      "decimal":2
                   }
                }, {
-                  "nombre":"Número de cargos",
+                  "nombre":"Numero de cargos",
                   "longField":"6",
                   "start":"29",
                   "end":"35",
@@ -340,8 +339,7 @@ exports.layoutPOST = function(args, res, next) {
           }
       }
    }
-}
- ];
+} ];
   if (Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
