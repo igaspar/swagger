@@ -4,14 +4,14 @@ info:
   description: "Documentación de las API de la Banca Genérica"
   version: "0.1.0"
   title: "ANZEN"
-host: "54.183.14.117:9090"
+host: "54.215.247.221:9092"
 basePath: "/"
 tags:
 - name: "Core Bancario"
   description: "Primer Login (Dinámico  y Estático)"
   externalDocs:
     description: "Primer Login"
-    url: "http://54.183.14.117:9090/docs"
+    url: "http://54.215.247.221:9092/docs"
 paths:
   /LoginEstatico:
     post:
