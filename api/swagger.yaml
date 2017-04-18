@@ -324,6 +324,7 @@ paths:
           description: "Unexpected error"
           schema:
             $ref: "#/definitions/Error"
+        x-swagger-router-controller: "Layout"
 definitions:
   FileDefinition-in:
     properties:
