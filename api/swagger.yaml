@@ -345,7 +345,7 @@ definitions:
       FileLimit:
         type: "integer"
         example: 1
-      IdOperationLong:
+      keyLine:
         type: "integer"
         example: 1
       FileLines:
@@ -360,17 +360,10 @@ definitions:
         $ref: "#/definitions/FileLines_OO"
       O1:
         $ref: "#/definitions/FileLines_OO"
-  longunique:
-    properties:
-      long:
-        type: "string"
-        example: "1"
-      unique:
-        type: "integer"
-        example: 1
+  
   fielFields:
     properties:
-      nombre:
+      name:
         type: "string"
         example: "1"
       longField:
@@ -379,24 +372,27 @@ definitions:
       start:
         type: "integer"
         example: 1
-      end:
+      type:
         type: "integer"
         example: 1
-      format:
-        type: "string"
-        example: "1"
-      validation:
+      validations:
         type: "array"
         items:
           $ref: "#/definitions/validation"
   validation:
     properties:
-      int:
+      rule:
         type: "integer"
         example: 1
-      decimal:
-        type: "number"
-        example: 1
+      params:
+        type: "array"
+        items:
+          $ref: "#/definitions/params"
+  params:
+    properties:
+      format:
+        type: string
+        example: DDMMAA
   loginEstatico-res:
     properties:
       identificador-de-sesion:
@@ -999,12 +995,12 @@ definitions:
     description: "Error de Respuesta dinamica"
   FileLines_99:
     required:
-    - "long"
+    - "size"
     - "unique"
     properties:
       unique:
         type: "string"
-      long:
+      size:
         type: "integer"
         example: 1
       fieldFields:
@@ -1013,13 +1009,13 @@ definitions:
           $ref: "#/definitions/fielFields"
   FileLines_OO:
     required:
-    - "long"
+    - "size"
     - "unique"
     properties:
       unique:
         type: "boolean"
         example: true
-      long:
+      size:
         type: "integer"
         example: 1
       fieldFields:
