@@ -299,11 +299,11 @@ paths:
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "Minio"
-  /layout:
+  /Layout:
     post:
       tags:
-      - "layout"
-      summary: "/layout"
+      - "Layout"
+      summary: "/Layout"
       description: "Servicio que realiza una consulta a la bd"
       operationId: "layoutPOST"
       parameters:
