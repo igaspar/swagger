@@ -305,7 +305,7 @@ paths:
       - "Layout"
       summary: "/Layout"
       description: "Servicio que realiza una consulta a la bd"
-      operationId: "LayoutPOST"
+      operationId: "layoutPOST"
       parameters:
       - in: "body"
         name: "Existe Layout"
@@ -324,7 +324,7 @@ paths:
           description: "Unexpected error"
           schema:
             $ref: "#/definitions/Error"
-        x-swagger-router-controller: "Layout"
+      x-swagger-router-controller: "Layout"
 definitions:
   FileDefinition-in:
     properties:
