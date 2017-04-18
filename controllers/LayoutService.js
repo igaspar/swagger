@@ -9,337 +9,285 @@ exports.layoutPOST = function(args, res, next) {
    * returns List
    **/
   var examples = {};
-  examples['application/json'] = [ {
+  examples['application/json'] = [{
    "fileDefinition":{
-      "idFileType":"1",
+      "idFileType":NumberInt(1),
       "fileType":"Layout - C",
-      "side":"3",
-      "fileLimit":"3",
-      "idOperationLong":"2",
+      "side":NumberInt(3),
+      "fileLimit":NumberInt(3),
+      "keyLine":NumberInt(2),
       "fileLines":{
           "00":{
-             "unique":"true",
-             "size":"125",
+             "unique":true,
+             "size":NumberInt(125),
              "fileFields":[
                 {
-                   "nombre":"Tipo de Registro",
-                   "longField":"2",
-                   "start":"0",
-                   "end":"2",
-                   "format":"9",
-                   "validation":{
-                      "integer":2,
-                      "decimal":0
+                   "name":"Tipo de Registro",
+                   "longField":NumberInt(2),
+                   "start":NumberInt(0),
+                   "type":"integer",
+                   "validations":{
                    }
                 }, {
-                   "nombre":"Numerico de identificacion del cliente",
-                   "longField":"12",
-                   "start":"2",
-                   "end":"14",
-                   "format":"9",
-                   "validation":{
-                      "integer":12,
-                      "decimal":0
+                   "name":"Numerico de identificacion del cliente",
+                   "longField":NumberInt(12),
+                   "start":NumberInt(2),
+                   "type":"integer",
+                   "validations":{
                    }
                 }, {
-                   "nombre":"Fecha de pago",
-                   "longField":"6",
-                   "start":"14",
-                   "end":"20",
-                   "format":"9",
-                   "validation":{
-                      "dateFormat":"ddmmaa"
+                   "name":"Fecha de pago",
+                   "longField":NumberInt(6),
+                   "start":NumberInt(14),
+                   "type":"integer",
+                   "validations":[
+			{
+				"rule":"dateFormat",
+				"params":{
+					"format":"ddmmaa"
+				}
+                        }
+		   ]
+                }, {
+                   "name":"Secuencial del archivo",
+                   "longField":NumberInt(4),
+                   "start":NumberInt(20),
+                   "type":"integer",
+                   "validations":{
                    }
                 }, {
-                   "nombre":"Secuencial del archivo",
-                   "longField":"4",
-                   "start":"20",
-                   "end":"24",
-                   "format":"9",
-                   "validation":{
-                      "integer":4,
-                      "decimal":0
+                   "name":"Nombre de la empresa",
+                   "longField":NumberInt(36),
+                   "start":NumberInt(24),
+                   "type":"string",
+                   "validations":{
                    }
                 }, {
-                   "nombre":"Nombre de la empresa",
-                   "longField":"36",
-                   "start":"24",
-                   "end":"60",
-                   "format":"x",
-                   "validation":{
-                      "integer":0,
-                      "decimal":0
+                   "name":"Descripcion del archivo",
+                   "longField":NumberInt(20),
+                   "start":NumberInt(60),
+                   "type":"string",
+                   "validations":{
                    }
                 }, {
-                   "nombre":"Descripcion del archivo",
-                   "longField":"20",
-                   "start":"60",
-                   "end":"80",
-                   "format":"x",
-                   "validation":{
-                      "integer":0,
-                      "decimal":0
+                   "name":"Naturaleza del archivo",
+                   "longField":NumberInt(2),
+                   "start":NumberInt(80),
+                   "type":"integer",
+                   "validations":{
                    }
                 }, {
-                   "nombre":"Naturaleza del archivo",
-                   "longField":"2",
-                   "start":"80",
-                   "end":"82",
-                   "format":"9",
-                   "validation":{
-                      "integer":2,
-                      "decimal":0
+                   "name":"Instrucciones para ordenes de pago",
+                   "longField":NumberInt(40),
+                   "start":NumberInt(82),
+                   "type":"string",
+                   "validations":{
                    }
                 }, {
-                   "nombre":"Instrucciones para ordenes de pago",
-                   "longField":"40",
-                   "start":"82",
-                   "end":"122",
-                   "format":"x",
-                   "validation":{
-                      "integer":0,
-                      "decimal":0
+                   "name":"Version del Layout",
+                   "longField":NumberInt(1),
+                   "start":NumberInt(122),
+                   "type":"string",
+                   "validations":{
                    }
                 }, {
-                   "nombre":"Version del Layout",
-                   "longField":"1",
-                   "start":"122",
-                   "end":"123",
-                   "format":"x",
-                   "validation":{
-                      "integer":0,
-                      "decimal":0
+                   "name":"Volumen",
+                   "longField":NumberInt(1),
+                   "start":NumberInt(123),
+                   "type":"integer",
+                   "validations":{
                    }
                 }, {
-                   "nombre":"Volumen",
-                   "longField":"1",
-                   "start":"123",
-                   "end":"124",
-                   "format":"9",
-                   "validation":{
-                      "integer":1,
-                      "decimal":0
-                   }
-                }, {
-                   "nombre":"Caracteristicas del archivo",
-                   "longField":"1",
-                   "start":"124",
-                   "end":"125",
-                   "format":"9",
-                   "validation":{
-                      "integer":1,
-                      "decimal":0
+                   "name":"Caracteristicas del archivo",
+                   "longField":NumberInt(1),
+                   "start":NumberInt(124),
+                   "type":"integer",
+                   "validations":{
                    }
                 }
              ]
           },
           "01":{
-             "unique":"false",
-             "size":"218",
+             "unique":false,
+             "size":NumberInt(218),
              "fileFields":[
                {
-                  "nombre":"Tipo de Registro",
-                  "longField":"2",
-                  "start":"0",
-                  "end":"2",
-                  "format":"9",
-                  "validation":{
-                     "integer":2,
-                     "decimal":0
+                  "name":"Tipo de Registro",
+                  "longField":NumberInt(2),
+                  "start":NumberInt(0),
+                  "type":"integer",
+		  "main":true,
+                  "validations":{
                   }
                }, {
-                  "nombre":"Tipo de operacion",
-                  "longField":"1",
-                  "start":"2",
-                  "end":"3",
-                  "format":"9",
-                  "validation":{
-                     "integer":1,
-                     "decimal":0
+                  "name":"Tipo de operacion",
+                  "longField":NumberInt(1),
+                  "start":NumberInt(2),
+                  "type":"integer",
+		  "main":true,
+                  "validations":{
                   }
                }, {
-                  "nombre":"Clave de la moneda",
-                  "longField":"3",
-                  "start":"3",
-                  "end":"6",
-                  "format":"9",
-                  "validation":{
-                     "integer":3,
-                     "decimal":0
+                  "name":"Clave de la moneda",
+                  "longField":NumberInt(3),
+                  "start":NumberInt(3),
+                  "type":"integer",
+		  "main":true,
+                  "validations":{
                   }
                }, {
-                  "nombre":"Importe",
-                  "longField":"18",
-                  "start":"6",
-                  "end":"24",
-                  "format":"9",
-                  "validation":{
-                     "integer":16,
-                     "decimal":2
+                  "name":"Importe",
+                  "longField":NumberInt(18),
+                  "start":NumberInt(6),
+                  "type":"float",
+		  "main":true,
+                   "validations":[
+			{
+				"rule":"amount",
+				"params":{
+					"decimals":NumberInt(2)
+				}
+                        }
+		   ]
+               }, {
+                  "name":"Tipo de cuenta",
+                  "longField":NumberInt(2),
+                  "start":NumberInt(24),
+                  "type":"integer",
+		  "main":true,
+                  "validations":{
                   }
                }, {
-                  "nombre":"Tipo de cuenta",
-                  "longField":"2",
-                  "start":"24",
-                  "end":"26",
-                  "format":"9",
-                  "validation":{
-                     "integer":2,
-                     "decimal":0
+                  "name":"Numero de cuenta",
+                  "longField":NumberInt(20),
+                  "start":NumberInt(26),
+                  "type":"integer",
+		  "main":false,
+                  "validations":{
                   }
                }, {
-                  "nombre":"Numero de cuenta",
-                  "longField":"20",
-                  "start":"26",
-                  "end":"46",
-                  "format":"9",
-                  "validation":{
-                     "integer":20,
-                     "decimal":0
+                  "name":"Referencia Alfanumerica",
+                  "longField":NumberInt(40),
+                  "start":NumberInt(46),
+                  "type":"string",
+		  "main":false,
+                  "validations":{
                   }
                }, {
-                  "nombre":"Referencia Alfanumerica",
-                  "longField":"40",
-                  "start":"46",
-                  "end":"86",
-                  "format":"x",
-                  "validation":{
-                     "integer":0,
-                     "decimal":0
+                  "name":"Beneficiario",
+                  "longField":NumberInt(55),
+                  "start":NumberInt(86),
+                  "type":"string",
+		  "main":false,
+                  "validations":{
                   }
                }, {
-                  "nombre":"Beneficiario",
-                  "longField":"55",
-                  "start":"86",
-                  "end":"141",
-                  "format":"x",
+                  "name":"Instrucciones",
+                  "longField":NumberInt(40),
+                  "start":NumberInt(141),
+                  "type":"string",
+		  "main":false,
                   "validation":{
-                     "integer":0,
-                     "decimal":0
                   }
                }, {
-                  "nombre":"Instrucciones",
-                  "longField":"40",
-                  "start":"141",
-                  "end":"181",
-                  "format":"x",
-                  "validation":{
-                     "integer":0,
-                     "decimal":0
+                  "name":"Descripcion TEF",
+                  "longField":NumberInt(24),
+                  "start":NumberInt(181),
+                  "type":"string",
+		  "main":false,
+                  "validations":{
                   }
                }, {
-                  "nombre":"Descripcion TEF",
-                  "longField":"24",
-                  "start":"181",
-                  "end":"205",
-                  "format":"x",
-                  "validation":{
-                     "integer":0,
-                     "decimal":0
+                  "name":"Clave de Banco",
+                  "longField":NumberInt(4),
+                  "start":NumberInt(205),
+                  "type":"integer",
+		  "main":false,
+                  "validations":{
                   }
                }, {
-                  "nombre":"Clave de Banco",
-                  "longField":"4",
-                  "start":"205",
-                  "end":"208",
-                  "format":"9",
-                  "validation":{
-                     "integer":4,
-                     "decimal":0
+                  "name":"Referencia Numerica",
+                  "longField":NumberInt(7),
+                  "start":NumberInt(208),
+                  "type":"integer",
+		  "main":false,
+                  "validations":{
                   }
                }, {
-                  "nombre":"Referencia Numerica",
-                  "longField":"7",
-                  "start":"209",
-                  "end":"216",
-                  "format":"9",
-                  "validation":{
-                     "integer":7,
-                     "decimal":0
-                  }
-               }, {
-                  "nombre":"Plazo",
-                  "longField":"1",
-                  "start":"216",
-                  "end":"218",
-                  "format":"9",
-                  "validation":{
-                     "integer":1,
-                     "decimal":0
+                  "name":"Plazo",
+                  "longField":NumberInt(1),
+                  "start":NumberInt(216),
+                  "type":"integer",
+		  "main":false,
+                  "validations":{
                   }
                }
              ]
           },
           "99":{
-             "unique":"true",
-             "size":"53",
+             "unique":true,
+             "size":NumberInt(53),
              "fileFields":[
                {
-                  "nombre":"Tipo de Registro",
-                  "longField":"2",
-                  "start":"0",
-                  "end":"2",
-                  "format":"9",
-                  "validation":{
-                     "integer":2,
-                     "decimal":0
+                  "name":"Tipo de Registro",
+                  "longField":NumberInt(2),
+                  "start":NumberInt(0),
+                  "type":"integer",
+                  "validations":{
                   }
                }, {
-                  "nombre":"Clave de la moneda",
-                  "longField":"3",
-                  "start":"2",
-                  "end":"5",
-                  "format":"9",
-                  "validation":{
-                     "integer":3,
-                     "decimal":0
+                  "name":"Clave de la moneda",
+                  "longField":NumberInt(3),
+                  "start":NumberInt(2),
+                  "type":"integer",
+                  "validations":{
                   }
                }, {
-                  "nombre":"Numero de abonos",
-                  "longField":"6",
-                  "start":"5",
-                  "end":"11",
-                  "format":"9",
-                  "validation":{
-                     "integer":6,
-                     "decimal":0
+                  "name":"Numero de abonos",
+                  "longField":NumberInt(6),
+                  "start":NumberInt(5),
+                  "type":"integer",
+                  "validations":{
                   }
                }, {
-                  "nombre":"Importe total de abonos",
-                  "longField":"18",
-                  "start":"11",
-                  "end":"29",
-                  "format":"9",
-                  "validation":{
-                     "integer":16,
-                     "decimal":2
+                  "name":"Importe total de abonos",
+                  "longField":NumberInt(18),
+                  "start":NumberInt(11),
+                  "type":"float",
+                   "validations":[
+			{
+				"rule":"peyment",
+				"params":{
+					"decimals":NumberInt(2)
+				}
+                        }
+		   ]
+               }, {
+                  "name":"Numero de cargos",
+                  "longField":NumberInt(6),
+                  "start":NumberInt(29),
+		  "type":"integer",
+                  "validations":{
                   }
                }, {
-                  "nombre":"Numero de cargos",
-                  "longField":"6",
-                  "start":"29",
-                  "end":"35",
-                  "format":"9",
-                  "validation":{
-                     "integer":6,
-                     "decimal":0
-                  }
-               }, {
-                  "nombre":"Importe total de cargos",
-                  "longField":"18",
-                  "start":"35",
-                  "end":"53",
-                  "format":"9",
-                  "validation":{
-                     "integer":16,
-                     "decimal":2
-                  }
+                  "name":"Importe total de cargos",
+                  "longField":NumberInt(18),
+                  "start":NumberInt(35),
+                  "type":"float",
+                   "validations":[
+			{
+				"rule":"totalAmount",
+				"params":{
+					"decimals":NumberInt(2)
+				}
+                        }
+		   ]
                }
              ]
           }
       }
    }
-} ];
+}];
   if (Object.keys(examples).length > 0) {
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(examples[Object.keys(examples)[0]] || {}, null, 2));
