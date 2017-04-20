@@ -936,7 +936,7 @@ definitions:
         example: "asd123qwe123"
     description: "Generacion de clave dinamica"
   ProductRes:
-    type: "object"
+    type: "string"
     properties:
       accesskey:
         type: "string"
