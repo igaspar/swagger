@@ -11,7 +11,7 @@ exports.layoutPOST = function(args, res, next) {
   var examples = {};
   examples['application/json'] = [{
    "fileDefinition":{
-      "idFileType":NumberInt(1),
+      "id":NumberInt(1),
       "fileType":"Layout - C",
       "side":NumberInt(3),
       "fileLimit":NumberInt(3),
