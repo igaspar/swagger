@@ -331,25 +331,27 @@ definitions:
       IdFileType:
         type: "integer"
         example: 1
+        
+        
+        
+        
   FileDefinition-res:
     properties:
       idFileType:
         type: "integer"
         example: 1
-      FileType:
+      fileType:
         type: "string"
         example: "1"
-      Side:
+      validationSide:
         type: "integer"
         example: 1
-      FileLimit:
+      keyLen:
         type: "integer"
         example: 1
-      keyLine:
+      lines:
         type: "integer"
         example: 1
-      FileLines:
-        type: "array"
         items:
           $ref: "#/definitions/FileLines"
   FileLines:
