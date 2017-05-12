@@ -331,10 +331,6 @@ definitions:
       IdFileType:
         type: "integer"
         example: 1
-        
-        
-        
-        
   FileDefinition-res:
     properties:
       idFileType:
@@ -352,6 +348,7 @@ definitions:
       lines:
         type: "integer"
         example: 1
+       
         items:
           $ref: "#/definitions/FileLines"
   FileLines:
