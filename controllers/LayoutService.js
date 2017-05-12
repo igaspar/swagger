@@ -15,7 +15,7 @@ exports.layoutPOST = function(args, res, next) {
       "fileType":"Layout - C",
       "side":NumberInt(3),
       "fileLimit":NumberInt(3),
-      "KeyLine":NumberInt(2),
+      "Line":NumberInt(2),
       "fileLines":{
           "00":{
              "unique":true,
