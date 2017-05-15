@@ -348,9 +348,9 @@ definitions:
       lines:
         type: "array"
         items:
-          $ref: "#/definitions/FileLines"
+          $ref: "#/definitions/lines"
        
-  FileLines:
+  lines:
     properties:
       99:
         $ref: "#/definitions/FileLines_99"
@@ -358,13 +358,43 @@ definitions:
         $ref: "#/definitions/FileLines_OO"
       O1:
         $ref: "#/definitions/FileLines_OO"
+        
+  FileLines_99:
+    required:
+    - "len"
+    - "appears"
+    properties:
+      appears:
+        type: "string"
+      len:
+        type: "integer"
+        example: 1
+      fields:
+        type: "array"
+        items:
+          $ref: "#/definitions/fields"
+  FileLines_OO:
+    required:
+    - "len"
+    - "appears"
+    properties:
+      appears:
+        type: "boolean"
+        example: true
+      len:
+        type: "integer"
+        example: 1
+      fieldFields:
+        type: "array"
+        items:
+          $ref: "#/definitions/fields"      
   
-  fielFields:
+  fields:
     properties:
       name:
         type: "string"
         example: "1"
-      longField:
+      len:
         type: "integer"
         example: 1
       start:
@@ -376,9 +406,12 @@ definitions:
       validations:
         type: "array"
         items:
-          $ref: "#/definitions/validation"
-  validation:
+          $ref: "#/definitions/validations"
+  validations:
     properties:
+      validationSide:
+        type: "integer"
+        example: 1
       rule:
         type: "integer"
         example: 1
@@ -388,9 +421,9 @@ definitions:
           $ref: "#/definitions/params"
   params:
     properties:
-      format:
+      value:
         type: string
-        example: DDMMAA
+        example: 1
   loginEstatico-res:
     properties:
       identificador-de-sesion:
@@ -991,32 +1024,4 @@ definitions:
         example: "Error en la autenticacion"
         description: "Respuesta de Login"
     description: "Error de Respuesta dinamica"
-  FileLines_99:
-    required:
-    - "size"
-    - "unique"
-    properties:
-      unique:
-        type: "string"
-      size:
-        type: "integer"
-        example: 1
-      fieldFields:
-        type: "array"
-        items:
-          $ref: "#/definitions/fielFields"
-  FileLines_OO:
-    required:
-    - "size"
-    - "unique"
-    properties:
-      unique:
-        type: "boolean"
-        example: true
-      size:
-        type: "integer"
-        example: 1
-      fieldFields:
-        type: "array"
-        items:
-          $ref: "#/definitions/fielFields"
+  
