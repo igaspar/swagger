@@ -346,11 +346,10 @@ definitions:
         type: "integer"
         example: 1
       lines:
-        type: "integer"
-        example: 1
-       
+        type: "array"
         items:
           $ref: "#/definitions/FileLines"
+       
   FileLines:
     properties:
       99:
