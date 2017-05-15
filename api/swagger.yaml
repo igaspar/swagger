@@ -317,8 +317,6 @@ paths:
         200:
           description: "An array of products"
           schema:
-            type: "array"
-            items:
               $ref: "#/definitions/FileDefinition-res"
         default:
           description: "Unexpected error"
