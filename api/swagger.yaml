@@ -344,20 +344,19 @@ definitions:
         type: "integer"
         example: 1
       lines:
-        type: "array"
-        items:
-          $ref: "#/definitions/lines"
-       
+        $ref: "#/definitions/lines"
+          
+      
   lines:
     properties:
       99:
-        $ref: "#/definitions/FileLines_99"
+        $ref: "#/definitions/99"
       OO:
-        $ref: "#/definitions/FileLines_OO"
+        $ref: "#/definitions/OO"
       O1:
-        $ref: "#/definitions/FileLines_OO"
+        $ref: "#/definitions/OO"
         
-  FileLines_99:
+  99:
     required:
     - "len"
     - "appears"
@@ -371,7 +370,7 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/fields"
-  FileLines_OO:
+  OO:
     required:
     - "len"
     - "appears"
