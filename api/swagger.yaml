@@ -1,4 +1,4 @@
----
+
 swagger: "2.0"
 info:
   description: "Documentación de las API de la Banca Genérica"
@@ -335,8 +335,8 @@ definitions:
         type: "integer"
         example: 1
       fileType:
-        type: "Layout 'C' formatos para importación (TEF / TEF Intelar)"
-        example: "1"
+        type: "string"
+        example: "Layout 'C' formatos para importación (TEF / TEF Intelar)"
       validationSide:
         type: "integer"
         example: 3
@@ -411,7 +411,7 @@ definitions:
         type: "integer"
         example: 3
       rule:
-        type: "String"
+        type: "string"
         example: "footerEqualTo"
       params:
         type: "array"
@@ -1022,4 +1022,3 @@ definitions:
         example: "Error en la autenticacion"
         description: "Respuesta de Login"
     description: "Error de Respuesta dinamica"
-  
