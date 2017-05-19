@@ -305,8 +305,8 @@ paths:
       tags:
       - "Layout"
       summary: "/layout"
-      description: "Servicio que realiza una consulta a la bd"
-      operationId: "layoutPOST"
+      description: "Servicio que realiza una consulta de los diferentes layout de pago."
+      operationId: "layout"
       parameters:
       - in: "body"
         name: "Existe Layout"
