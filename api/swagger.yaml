@@ -315,11 +315,11 @@ paths:
           $ref: "#/definitions/FileDefinition-in"
       responses:
         200:
-          description: "An array of products"
+          description: "Validacion de Layout"
           schema:
               $ref: "#/definitions/FileDefinition-res"
         default:
-          description: "Unexpected error"
+          description: "Layout no existe"
           schema:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "Layout"
