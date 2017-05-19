@@ -1022,3 +1022,9 @@ definitions:
         example: "Error en la autenticacion"
         description: "Respuesta de Login"
     description: "Error de Respuesta dinamica"
+   ErrorLayout:
+    properties:
+      Error:
+        type: "string"
+        example: "Error"
+        description: "Error"
