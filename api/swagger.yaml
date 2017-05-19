@@ -1,4 +1,5 @@
 
+
 swagger: "2.0"
 info:
   description: "Documentación de las API de la Banca Genérica"
@@ -1022,9 +1023,10 @@ definitions:
         example: "Error en la autenticacion"
         description: "Respuesta de Login"
     description: "Error de Respuesta dinamica"
-   ErrorLayout:
+  ErrorLayout:
     properties:
       Error:
         type: "string"
         example: "Error"
         description: "Error"
+    description: "Error de Respuesta dinamica"
