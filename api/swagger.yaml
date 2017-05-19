@@ -321,7 +321,7 @@ paths:
         default:
           description: "Layout no existe"
           schema:
-            $ref: "#/definitions/Error"
+            $ref: "#/definitions/ErrorLayout"
       x-swagger-router-controller: "Layout"
 definitions:
   FileDefinition-in:
