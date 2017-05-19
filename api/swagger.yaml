@@ -326,7 +326,7 @@ paths:
 definitions:
   FileDefinition-in:
     properties:
-      IdFileType:
+      idFileType:
         type: "integer"
         example: 1
   FileDefinition-res:
