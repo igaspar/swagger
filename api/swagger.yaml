@@ -335,14 +335,14 @@ definitions:
         type: "integer"
         example: 1
       fileType:
-        type: "string"
+        type: "Layout 'C' formatos para importación (TEF / TEF Intelar)"
         example: "1"
       validationSide:
         type: "integer"
-        example: 1
+        example: 3
       keyLen:
         type: "integer"
-        example: 1
+        example: 2
       lines:
         $ref: "#/definitions/lines"
           
@@ -363,9 +363,10 @@ definitions:
     properties:
       appears:
         type: "string"
+        example: 1
       len:
         type: "integer"
-        example: 1
+        example: 52
       fields:
         type: "array"
         items:
@@ -390,16 +391,16 @@ definitions:
     properties:
       name:
         type: "string"
-        example: "1"
+        example: "tipoRegistro"
       len:
         type: "integer"
         example: 1
       start:
         type: "integer"
-        example: 1
+        example: 0
       type:
         type: "integer"
-        example: 1
+        example: "int"
       validations:
         type: "array"
         items:
@@ -408,10 +409,10 @@ definitions:
     properties:
       validationSide:
         type: "integer"
-        example: 1
+        example: 3
       rule:
-        type: "integer"
-        example: 1
+        type: "String"
+        example: "footerEqualTo"
       params:
         type: "array"
         items:
@@ -420,7 +421,7 @@ definitions:
     properties:
       value:
         type: string
-        example: 1
+        example: 4
   loginEstatico-res:
     properties:
       identificador-de-sesion:
