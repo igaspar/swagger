@@ -303,27 +303,27 @@ paths:
   /layout:
     post:
       tags:
-      - "Layout"
+      - "layout"
       summary: "/layout"
       description: "Servicio que realiza una consulta de los diferentes layout de pago."
       operationId: "layout"
       parameters:
       - in: "body"
-        name: "Existe Layout"
-        description: "Layout"
+        name: "Existe layout"
+        description: "layout"
         required: true
         schema:
           $ref: "#/definitions/FileDefinition-in"
       responses:
         200:
-          description: "Validacion de Layout"
+          description: "Validacion de layout"
           schema:
               $ref: "#/definitions/FileDefinition-res"
         default:
-          description: "Layout no existe"
+          description: "layout no existe"
           schema:
-            $ref: "#/definitions/ErrorLayout"
-      x-swagger-router-controller: "Layout"
+            $ref: "#/definitions/Errorlayout"
+      x-swagger-router-controller: "layout"
 definitions:
   FileDefinition-in:
     properties:
@@ -337,7 +337,7 @@ definitions:
         example: 1
       fileType:
         type: "string"
-        example: "Layout 'C' formatos para importación (TEF / TEF Intelar)"
+        example: "layout 'C' formatos para importación (TEF / TEF Intelar)"
       validationSide:
         type: "integer"
         example: 3
@@ -1023,7 +1023,7 @@ definitions:
         example: "Error en la autenticacion"
         description: "Respuesta de Login"
     description: "Error de Respuesta dinamica"
-  ErrorLayout:
+  Errorlayout:
     properties:
       Error:
         type: "string"
