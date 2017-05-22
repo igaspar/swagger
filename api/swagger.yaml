@@ -381,12 +381,11 @@ definitions:
 
 
   customModels:
-    required:
-      - id
     properties:
-      id:
+      descripcion:
         description: Returns the base model that this translation model was trained on
-        type: integer
+        type: string
+         example: "Se procesaron el siguiente numero de transacciones correctamente."
   errorResponse:
     required:
       - error_code
