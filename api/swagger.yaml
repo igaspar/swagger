@@ -309,22 +309,69 @@ paths:
       operationId: "layout"
       parameters:
       - in: "body"
-        name: "idFileType"
-        description: "Iidentificador de tipo de layout"
+        name: "Existe layout"
+        description: "layout"
         required: true
         schema:
           $ref: "#/definitions/FileDefinition-in"
       responses:
         200:
-          description: "Respuesta de esctructura de layout"
+          description: "Validacion de layout"
           schema:
               $ref: "#/definitions/FileDefinition-res"
-        407:
+        default:
           description: "layout no existe"
           schema:
-            $ref: "#/definitions/ErrorlayoutNoExiste"
-       
+            $ref: "#/definitions/Errorlayout"
       x-swagger-router-controller: "layout"
+
+  /sendLayout:
+    post:
+      tags:
+        - sendLayout
+      operationId: customTranslationModels
+      summary: Uploads a TMX glossary file on top of a domain to customize a translation model
+      description: ''
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: header
+          description: 'Método para ingresar un archivo de nómina'
+          required: false
+          type: integer
+
+        - name: file
+          in: formData
+          description: 'Upload the valid TMX file with your term and translation pairs. As a general rule, anything that is specified in this file completely overwrites the original domain data translation. However, high frequency/confidence phrase translations will not be overwritten (the word `policy`, for example); this will result in such words, when used in forced_glossary, to be ignored.'
+          required: true
+          type: file
+      responses:
+          '200':
+            description: 'Success: Training is successfully started'
+            schema:
+              $ref: '#/definitions/customModels'
+          '400':
+            description: >-
+              Bad request: The base_model_id is not specified OR you've hit the
+              maximum limit of customizations for this user
+            schema:
+              $ref: '#/definitions/errorResponse'
+          '404':
+            description: 'Not found: The base_model_id value is invalid'
+            schema:
+              $ref: '#/definitions/errorResponse'
+          '413':
+            description: 'File size exceeded: Payload body exceeded the limit'
+            schema:
+              $ref: '#/definitions/errorResponse'
+          '500':
+            description: Internal Server Error
+            schema:
+              $ref: '#/definitions/errorResponse'
+
 definitions:
   FileDefinition-in:
     properties:
@@ -347,8 +394,31 @@ definitions:
         example: 2
       lines:
         $ref: "#/definitions/lines"
-          
-      
+
+
+
+  customModels:
+    required:
+      - id
+    properties:
+      id:
+        description: Returns the base model that this translation model was trained on
+        type: integer
+  errorResponse:
+    required:
+      - error_code
+      - error_message
+    properties:
+      error_code:
+        description: A short identifier for the error.
+        type: string
+      error_message:
+        description: A more detailed description of the error.
+        type: string
+
+
+
+
   lines:
     properties:
       99:
@@ -357,7 +427,6 @@ definitions:
         $ref: "#/definitions/OO"
       O1:
         $ref: "#/definitions/OO"
-        
   99:
     required:
     - "len"
@@ -387,16 +456,13 @@ definitions:
       fieldFields:
         type: "array"
         items:
-          $ref: "#/definitions/fields"      
-  
+          $ref: "#/definitions/fields"
+
   fields:
     properties:
       name:
         type: "string"
         example: "tipoRegistro"
-      description":
-        type: "string"
-        example: "tipo de registro"
       len:
         type: "integer"
         example: 1
@@ -1027,10 +1093,10 @@ definitions:
         example: "Error en la autenticacion"
         description: "Respuesta de Login"
     description: "Error de Respuesta dinamica"
-  ErrorlayoutNoExiste:
+  Errorlayout:
     properties:
       Error:
         type: "string"
-        example: "El id no existe en base de datos"
-        description: "Este Id no existe en base de datos"
-    description: "No existe layout"
+        example: "Error"
+        description: "Error"
+    description: "Error de Respuesta dinamica"
