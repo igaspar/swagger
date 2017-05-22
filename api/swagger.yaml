@@ -378,27 +378,12 @@ definitions:
       lines:
         $ref: "#/definitions/lines"
 
-
-
   customModels:
     properties:
-      descripcion:
-        description: Returns the base model that this translation model was trained on
-        type: string
+      idFileType:
+         type: string
          example: "Se procesaron el siguiente numero de transacciones correctamente."
-  errorResponse:
-    required:
-      - error_code
-      - error_message
-    properties:
-      error_code:
-        description: A short identifier for the error.
-        type: string
-      error_message:
-        description: A more detailed description of the error.
-        type: string
-
-
+         
 
 
   lines:
