@@ -309,8 +309,8 @@ paths:
       operationId: "layout"
       parameters:
       - in: "body"
-        name: "idFileType"
-        description: "layout"
+        name: "Iidentificador de tipo de layout"
+        description: ""
         required: true
         schema:
           $ref: "#/definitions/FileDefinition-in"
