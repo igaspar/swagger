@@ -316,7 +316,7 @@ paths:
           $ref: "#/definitions/FileDefinition-in"
       responses:
         200:
-          description: "Validacion de layout"
+          description: "Respuesta de esctructura de layout"
           schema:
               $ref: "#/definitions/FileDefinition-res"
         407:
