@@ -303,7 +303,7 @@ paths:
   /layout:
     post:
       tags:
-      - "layout"
+      - "Layout"
       summary: "/layout"
       description: "Servicio que realiza una consulta de los diferentes layout de pago."
       operationId: "layout"
