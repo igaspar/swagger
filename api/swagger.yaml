@@ -319,10 +319,11 @@ paths:
           description: "Validacion de layout"
           schema:
               $ref: "#/definitions/FileDefinition-res"
-        default:
+        407:
           description: "layout no existe"
           schema:
-            $ref: "#/definitions/Errorlayout"
+            $ref: "#/definitions/ErrorlayoutNoExiste"
+       
       x-swagger-router-controller: "layout"
 definitions:
   FileDefinition-in:
@@ -1026,10 +1027,10 @@ definitions:
         example: "Error en la autenticacion"
         description: "Respuesta de Login"
     description: "Error de Respuesta dinamica"
-  Errorlayout:
+  ErrorlayoutNoExiste:
     properties:
       Error:
         type: "string"
-        example: "Error"
-        description: "Error"
-    description: "Error de Respuesta dinamica"
+        example: "El id no existe en base de datos"
+        description: "Este Id no existe en base de datos"
+    description: "No existe layout"
