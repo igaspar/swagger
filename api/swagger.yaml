@@ -330,7 +330,7 @@ paths:
       tags:
         - sendLayout
       operationId: customTranslationModels
-      summary: Uploads a TMX glossary file on top of a domain to customize a translation model
+      summary: "/sendLayout"
       description: ''
       consumes:
         - multipart/form-data
