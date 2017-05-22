@@ -393,6 +393,9 @@ definitions:
       name:
         type: "string"
         example: "tipoRegistro"
+      description":
+        type: "string"
+        example: "tipo de registro"
       len:
         type: "integer"
         example: 1
