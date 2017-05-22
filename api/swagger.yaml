@@ -380,7 +380,7 @@ definitions:
 
   customModels:
     properties:
-      idFileType:
+      descripción:
          type: string
          example: "Se procesaron el siguiente numero de transacciones correctamente."
          
