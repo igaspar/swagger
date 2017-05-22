@@ -339,13 +339,13 @@ paths:
       parameters:
         - name: id
           in: header
-          description: 'Método para ingresar un archivo de nómina'
+          description: 'El id es el identificador  del layout que el servicio va validar'
           required: false
           type: integer
 
         - name: file
           in: formData
-          description: 'Upload the valid TMX file with your term and translation pairs. As a general rule, anything that is specified in this file completely overwrites the original domain data translation. However, high frequency/confidence phrase translations will not be overwritten (the word `policy`, for example); this will result in such words, when used in forced_glossary, to be ignored.'
+          description: 'file es el form-data que consume un archivo con .zip el cual contiene el archivo txt con las transacciones'
           required: true
           type: file
       responses:
@@ -353,24 +353,7 @@ paths:
             description: 'Success: Training is successfully started'
             schema:
               $ref: '#/definitions/customModels'
-          '400':
-            description: >-
-              Bad request: The base_model_id is not specified OR you've hit the
-              maximum limit of customizations for this user
-            schema:
-              $ref: '#/definitions/errorResponse'
-          '404':
-            description: 'Not found: The base_model_id value is invalid'
-            schema:
-              $ref: '#/definitions/errorResponse'
-          '413':
-            description: 'File size exceeded: Payload body exceeded the limit'
-            schema:
-              $ref: '#/definitions/errorResponse'
-          '500':
-            description: Internal Server Error
-            schema:
-              $ref: '#/definitions/errorResponse'
+         
 
 definitions:
   FileDefinition-in:
