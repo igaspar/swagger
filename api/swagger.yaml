@@ -350,7 +350,7 @@ paths:
           type: file
       responses:
           '200':
-            description: 'Success: Training is successfully started'
+            description: 'Valida la estructura del archivo que se adjunta'
             schema:
               $ref: '#/definitions/customModels'
          
