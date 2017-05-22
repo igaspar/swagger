@@ -309,7 +309,7 @@ paths:
       operationId: "layout"
       parameters:
       - in: "body"
-        name: "Existe layout"
+        name: "idFileType"
         description: "layout"
         required: true
         schema:
