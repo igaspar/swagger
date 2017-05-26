@@ -327,6 +327,31 @@ paths:
             $ref: "#/definitions/Errorlayout"
       x-swagger-router-controller: "Nomina"
 
+  /menu:
+    post:
+      tags:
+      - "Facultamiento"
+      summary: "/menu"
+      description: "menu bancanet"
+      operationId: "menuPOST"
+      parameters:
+      - in: "body"
+        name: "menu"
+        description: "Consulta menu por usuario"
+        required: true
+        schema:
+          $ref: "#/definitions/menu-in"
+      responses:
+        200:
+          description: "responde menu"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+        403:
+          description: "Cliente no encontrado"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Facultamiento" 
+
   /sendLayout:
     post:
       tags:
@@ -1055,6 +1080,19 @@ definitions:
         type: "integer"
         example: 40
     description: "Realiza una consulta"
+  menu-in:
+    properties:
+      id:
+        type: "integer"
+        example: 1
+    description: "Valores de regreso de clave dinamica"
+  inline_response_200:
+    properties:
+      id:
+        type: "string"
+        example: "menu" 
+    description: "Valores de regreso de clave dinamica" 	
+	
   Error:
     properties:
       Error:
