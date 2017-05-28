@@ -7,9 +7,8 @@ node {
    checkout scm
  
   stage 'Desplegando'
-  sh 'chmod 777 comando.sh'
-  sh './comando.sh'	
+  sh 'sudo killall node'
   sh 'sudo npm install'
-  sh 'nohup  sudo npm index.js &'
+  sh 'nohup  sudo node index.js &'
 
 }
