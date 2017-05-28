@@ -10,6 +10,6 @@ node {
   sh 'chmod 777 comando.sh'
   sh './comando.sh'	
   sh 'npm install'
-  sh 'nohup  npm start &'
+  sh 'nohup  npm index.js &'
 
 }
