@@ -9,7 +9,7 @@ node {
   stage 'Desplegando'
   sh 'chmod 777 comando.sh'
   sh './comando.sh'	
-  sh 'npm install'
-  sh 'nohup  npm index.js &'
+  sh 'sudo npm install'
+  sh 'nohup  sudo npm index.js &'
 
 }
