@@ -302,7 +302,7 @@ paths:
 
 
 
-  /layout:
+  /nomina/layout:
     post:
       tags:
       - "Nomina"
@@ -327,7 +327,7 @@ paths:
             $ref: "#/definitions/Errorlayout"
       x-swagger-router-controller: "Nomina"
 
-  /menu:
+  /facultamiento/menu:
     post:
       tags:
       - "Facultamiento"
@@ -352,7 +352,7 @@ paths:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "Facultamiento" 
 
-  /sendLayout:
+  /nomina/sendLayout:
     post:
       tags:
         - "Nomina"
