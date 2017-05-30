@@ -356,7 +356,7 @@ paths:
     post:
       tags:
         - "Nomina"
-      operationId: "nomina"
+      operationId: "sendLayout"
       summary: "/nomina"
       description: ''
       consumes:
