@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "Documentación de los servicios de la Banca Genérica  "
+  description: "Documentación de los servicios de la Banca Genérica  " 
   version: "0.1.0"
   title: "Middleware"
 host: "200.39.24.141"
@@ -12,7 +12,7 @@ paths:
   /nomina/filter:
     post:
       tags:
-      - "Filter"
+      - "Nomina"
       summary: "/nomina"
       description: "Servicio que realiza la busqueda de layouts por el parametro type."
       operationId: "filter"
@@ -32,7 +32,7 @@ paths:
           description: "No hay resultados de layouts para la busqueda realizada"
           schema:
               $ref: "#/definitions/EmptyArray"
-
+          
       x-swagger-router-controller: "Filter"
 
 
@@ -65,7 +65,7 @@ paths:
 
 
 
-
+  
   /nomina/layout:
     post:
       tags:
@@ -114,7 +114,7 @@ paths:
           description: "Cliente no encontrado"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Facultamiento"
+      x-swagger-router-controller: "Facultamiento" 
 
   /nomina/sendLayout:
     post:
@@ -171,18 +171,18 @@ definitions:
       idFileType:
         type: integer
         example: 1
-
+        
   EmptyArray:
     type: "array"
     items: {}
-
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
+  
 
   FileDefinition-in:
     properties:
@@ -306,9 +306,9 @@ definitions:
     properties:
       id:
         type: "string"
-        example: "menu"
-    description: "Valores de regreso de clave dinamica"
-
+        example: "menu" 
+    description: "Valores de regreso de clave dinamica"   
+  
   Error:
     properties:
       Error:
