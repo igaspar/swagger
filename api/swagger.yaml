@@ -1,13 +1,71 @@
 swagger: "2.0"
 info:
-  description: "Documentación de los servicios de la Banca Genéricap" 
+  description: "Documentación de los servicios de la Banca Genérica  "
   version: "0.1.0"
   title: "Middleware"
 host: "200.39.24.141"
 basePath: "/"
 
 paths:
-  
+
+
+  /nomina/filter:
+    post:
+      tags:
+      - "Filter"
+      summary: "/nomina"
+      description: "Servicio que realiza la busqueda de layouts por el parametro type."
+      operationId: "filter"
+      parameters:
+      - in: "body"
+        name: "type"
+        description: "Parametro de busqueda en la base de datos de layouts"
+        required: true
+        schema:
+          $ref: "#/definitions/SearchLayoutByType-in"
+      responses:
+        200:
+          description: "Resultado de busqueda por parametro type"
+          schema:
+              $ref: "#/definitions/SearchLayoutByType-res"
+        default:
+          description: "No hay resultados de layouts para la busqueda realizada"
+          schema:
+              $ref: "#/definitions/EmptyArray"
+
+      x-swagger-router-controller: "Filter"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /nomina/layout:
     post:
       tags:
@@ -56,7 +114,7 @@ paths:
           description: "Cliente no encontrado"
           schema:
             $ref: "#/definitions/Error"
-      x-swagger-router-controller: "Facultamiento" 
+      x-swagger-router-controller: "Facultamiento"
 
   /nomina/sendLayout:
     post:
@@ -89,6 +147,43 @@ paths:
       x-swagger-router-controller: "Nomina"
 
 definitions:
+
+
+  SearchLayoutByType-in:
+    properties:
+      type:
+        type: "string"
+        example: "Nómina"
+
+  SearchLayoutByType-res:
+    type: "array"
+    items:
+      $ref: "#/definitions/SampleSearchByType"
+
+  SampleSearchByType:
+    properties:
+      type:
+         type: string
+         example: "Nómina"
+      subtype:
+        type: string
+        example: "SubTypeNómina"
+      idFileType:
+        type: integer
+        example: 1
+
+  EmptyArray:
+    type: "array"
+    items: {}
+
+
+
+
+
+
+
+
+
   FileDefinition-in:
     properties:
       idFileType:
@@ -102,6 +197,12 @@ definitions:
       fileType:
         type: "string"
         example: "layout 'C' formatos para importación (TEF / TEF Intelar)"
+      type:
+        type: "string"
+        example: "Nómina"
+      subtype:
+        type: "string"
+        example: "NóminaSubType"
       validationSide:
         type: "integer"
         example: 3
@@ -205,9 +306,9 @@ definitions:
     properties:
       id:
         type: "string"
-        example: "menu" 
-    description: "Valores de regreso de clave dinamica" 	
-	
+        example: "menu"
+    description: "Valores de regreso de clave dinamica"
+
   Error:
     properties:
       Error:
