@@ -175,6 +175,7 @@ definitions:
   EmptyArray:
     type: "array"
     items: {}
+    example: []
   
   
   
