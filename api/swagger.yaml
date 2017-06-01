@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "Documentación de los servicios de la Banca Genérica" 
+  description: "Documentación de los servicios de la Banca Genérica multiva" 
   version: "0.1.0"
   title: "Middleware"
 host: "200.39.24.141"
