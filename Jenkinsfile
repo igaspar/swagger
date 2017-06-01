@@ -7,7 +7,7 @@ node {
    checkout scm
  
   stage 'Desplegando'
-  sh 'kill -9 $(ps -fea|grep node|grep index.js|cut -d " " -f 5)'
+  sh 'kill -9 $(ps -fea|grep node|grep index.js|cut -d " " -f 6)'
   sh 'npm install'
   sh 'nohup node index.js &'
 
