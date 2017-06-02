@@ -303,12 +303,62 @@ definitions:
         type: "integer"
         example: 1
     description: "Valores de regreso de clave dinamica"
+  #//////////////////////////////////////////////////////////////////////////////////////////////////// 
   inline_response_200:
     properties:
       id:
+        type: "integer"
+        example: 1
+      Menu:
+        $ref: "#/definitions/menu"        
+    description: "Valores de regreso de clave dinamica"  
+
+  menu:
+    properties:
+      id:
         type: "string"
-        example: "menu" 
-    description: "Valores de regreso de clave dinamica"   
+        example: "01"
+      name:
+        type: "string"
+        example: "CONSULTAS"
+      componet:
+        type: "string"
+        example: ""       
+      submenu:
+        type: "array"
+        items:
+         $ref: "#/definitions/submenu"         
+   
+  submenu:
+    properties:
+    
+      id:
+        type: "string"
+        example: "0102"
+      name:
+        type: "string"
+        example: "Estados de cuenta"
+      componet:
+        type: "string"
+        example: ""   
+      submenu:
+        type: "array"
+        items:
+          $ref: "#/definitions/subsubmenu"          
+      
+  subsubmenu:
+    properties:
+    
+      id:
+        type: "string"
+        example: "010201"
+      name:
+        type: "string"
+        example: "En linea"
+      componet:
+        type: "string"
+        example: ""  
+       #///////////////////////////////////////////////////////////////////////////////////////// 
   
   Error:
     properties:
