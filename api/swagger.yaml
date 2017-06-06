@@ -9,6 +9,69 @@ basePath: "/"
 paths:
 
 
+  /user/login:
+    post:
+      tags:
+      - "User"
+      summary: "Logs user into the system"
+      description: ""
+      operationId: "loginUser"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/Client"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/success"
+          headers:
+            X-Rate-Limit:
+              type: "integer"
+              format: "int32"
+              description: "calls per hour allowed by the user"
+            X-Expires-After:
+              type: "string"
+              format: "date-time"
+              description: "date in UTC when token expires"
+
+  /user/key:
+    post:
+      tags:
+      - "User"
+      summary: "Dinamic Key"
+      description: ""
+      operationId: "dinamicKey"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/key"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/keySuccess"
+          headers:
+            X-Rate-Limit:
+              type: "integer"
+              format: "int32"
+              description: "calls per hour allowed by the user"
+            X-Expires-After:
+              type: "string"
+              format: "date-time"
+              description: "date in UTC when token expires"
+
+
   /nomina/filter:
     post:
       tags:
@@ -34,35 +97,6 @@ paths:
               $ref: "#/definitions/EmptyArray"
           
       x-swagger-router-controller: "Filter"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   
@@ -146,6 +180,8 @@ paths:
               $ref: '#/definitions/customModels'
       x-swagger-router-controller: "Nomina"
 
+
+
 definitions:
 
 
@@ -178,6 +214,35 @@ definitions:
     example: []
   
   
+
+
+  Client:
+    type: "object"
+    properties:
+      Client:
+        type: "string"
+        example: "Cliente1"
+      Password:
+        type: "string"
+        example: "12345678"
+  success:
+    type: "object"
+    properties:
+        status:
+            type: integer
+            example: integer
+  key:
+    type: "object"
+    properties:
+        dinamicKey:
+            type: "string"
+            example: "123456"
+  keySuccess:
+    type: "object"
+    properties:
+        status:
+            type: integer
+            example: integer
   
   
   
@@ -358,8 +423,7 @@ definitions:
       componet:
         type: "string"
         example: ""  
-       #///////////////////////////////////////////////////////////////////////////////////////// 
-  
+
   Error:
     properties:
       Error:
