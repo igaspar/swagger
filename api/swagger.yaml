@@ -8,6 +8,37 @@ basePath: "/"
 
 paths:
 
+  
+  /recoverFiles:
+    post:
+      tags:
+      - "Nomina"
+      summary: "Logs user into the system"
+      description: ""
+      operationId: "recoverFiles"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/recoverFiles"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/responseRecoverFiles"
+          headers:
+            X-Rate-Limit:
+              type: "integer"
+              format: "int32"
+              description: "calls per hour allowed by the user"
+            X-Expires-After:
+              type: "string"
+              format: "date-time"
+              description: "date in UTC when token expires"
 
   /user/login:
     post:
@@ -100,7 +131,7 @@ paths:
 
 
   
-  /nomina/layout:
+  /nomina/getConfLayout:
     post:
       tags:
       - "Nomina"
@@ -150,7 +181,7 @@ paths:
             $ref: "#/definitions/Error"
       x-swagger-router-controller: "Facultamiento" 
 
-  /nomina/sendLayout:
+  /nomina/saveFile:
     post:
       tags:
         - "Nomina"
@@ -184,6 +215,41 @@ paths:
 
 definitions:
 
+
+  recoverFiles:
+    type: "object"
+    properties:
+      client:
+        type: "string"
+        example: "banco"
+      type:
+        type: "string"
+        example: "Nómina"
+      subType:
+        type: "string"
+        example: "Multiva"
+  responseRecoverFiles:
+    type: "array"
+    items:
+            $ref: "#/definitions/responseRecoverFiles2"
+  responseRecoverFiles2:
+    properties:
+        fileName:
+            type: "string"
+            example: "nomina150115"
+        date:
+            type: "string"
+            example: "060617"
+        identificator:
+            type: "string"
+            example: "1"
+        description:
+            type: "string"
+            example: "Pago por Rutina"
+        numberRecords:
+            type: "string"
+            example: "8"
+        
 
   SearchLayoutByType-in:
     properties:
