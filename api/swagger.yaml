@@ -266,19 +266,19 @@ definitions:
     properties:
         fileName:
             type: "string"
-            example: "nomina150115"
+            example: "string"
         date:
             type: "string"
-            example: "060617"
+            example: "string"
         identificator:
             type: "string"
-            example: "1"
+            example: "integer"
         description:
             type: "string"
-            example: "Pago por Rutina"
+            example: "string"
         numberRecords:
             type: "string"
-            example: "8"
+            example: integer
         
 
   SearchLayoutByType-in:
@@ -296,13 +296,13 @@ definitions:
     properties:
       type:
          type: string
-         example: "Nómina"
+         example: "string"
       subtype:
         type: string
-        example: "SubTypeNómina"
+        example: "string"
       idFileType:
         type: integer
-        example: 1
+        example: "integer"
         
   EmptyArray:
     type: "array"
@@ -340,11 +340,6 @@ definitions:
             type: integer
             example: integer
   
-  
-  
-  
-  
-  
 
   FileDefinition-in:
     properties:
@@ -355,31 +350,37 @@ definitions:
     properties:
       idFileType:
         type: "integer"
-        example: 1
+        example: "integer"
       fileType:
         type: "string"
-        example: "layout 'C' formatos para importación (TEF / TEF Intelar)"
+        example: "string"
       type:
         type: "string"
-        example: "Nómina"
+        example: "string"
       subtype:
         type: "string"
-        example: "NóminaSubType"
+        example: "string"
       validationSide:
         type: "integer"
-        example: 3
+        example: "integer"
       keyLen:
         type: "integer"
-        example: 2
+        example: "integer"
       lines:
         $ref: "#/definitions/lines"
 
   customModels:
+    type: "array"
+    items:
+      $ref: "#/definitions/customModelsItems"
+  customModelsItems:
     properties:
-      descripción:
-         type: string
-         example: "Se procesaron el siguiente numero de transacciones correctamente."
-
+        idAutorizador:
+            type: "integer"
+            example: "integer"
+        nameAutorizador:
+            type: "string"
+            example: "string"
 
 
   lines:
@@ -397,10 +398,10 @@ definitions:
     properties:
       appears:
         type: "string"
-        example: 1
+        example: "string"
       len:
         type: "integer"
-        example: 52
+        example: "integer"
       fields:
         type: "array"
         items:
@@ -412,10 +413,10 @@ definitions:
     properties:
       appears:
         type: "boolean"
-        example: true
+        example: "boolean"
       len:
         type: "integer"
-        example: 1
+        example: "integer"
       fieldFields:
         type: "array"
         items:
@@ -425,16 +426,16 @@ definitions:
     properties:
       name:
         type: "string"
-        example: "tipoRegistro"
+        example: "string"
       len:
         type: "integer"
-        example: 1
+        example: "integer"
       start:
         type: "integer"
-        example: 0
+        example: "integer"
       type:
         type: "integer"
-        example: "int"
+        example: "integer"
       validations:
         type: "array"
         items:
@@ -443,10 +444,10 @@ definitions:
     properties:
       validationSide:
         type: "integer"
-        example: 3
+        example: "integer"
       rule:
         type: "string"
-        example: "footerEqualTo"
+        example: "string"
       params:
         type: "array"
         items:
@@ -454,8 +455,8 @@ definitions:
   params:
     properties:
       value:
-        type: string
-        example: 4
+        type: "string"
+        example: string
 
 
   menu-in:
