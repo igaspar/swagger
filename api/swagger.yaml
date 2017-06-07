@@ -193,12 +193,45 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: id
+        - name: idLayout
           in: header
           description: 'El id es el identificador  del layout que el servicio va validar'
-          required: false
+          required: true
           type: integer
+        
+        - name: client
+          in: header
+          description: 'El id es el identificador  del layout que el servicio va validar'
+          required: true
+          type: string
 
+        - name: fileName
+          in: header
+          description: 'El id es el identificador  del layout que el servicio va validar'
+          required: true
+          type: string
+   
+        - name: description
+          in: header
+          description: 'El id es el identificador  del layout que el servicio va validar'
+          required: true
+          type: string
+   
+
+        - name: sequence
+          in: header
+          description: 'El id es el identificador  del layout que el servicio va validar'
+          required: true
+          type:  integer
+          
+          
+        - name: applicationDate
+          in: header
+          description: 'El id es el identificador  del layout que el servicio va validar'
+          required: true
+          type: string
+   
+   
         - name: file
           in: formData
           description: 'file es el form-data que consume un archivo con .zip el cual contiene el archivo txt con las transacciones'
