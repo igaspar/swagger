@@ -131,7 +131,7 @@ paths:
 
 
   
-  /nomina/getConfLayout:
+  /nomina/getConfigLayout:
     post:
       tags:
       - "Nomina"
