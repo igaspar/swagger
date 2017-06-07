@@ -14,20 +14,20 @@ paths:
       tags:
       - "Nomina"
       summary: "Logs user into the system"
-      description: ""
+      description: "Servicio que recupera los archivos guardados en base de datos"
       operationId: "recoverFiles"
       produces:
       - "application/json"
       parameters:
       - in: "body"
         name: "body"
-        description: "Created user object"
+        description: "Se envía un JSON como parámetro por 'body' con los datos de búsqueda: El cliente, el tipo de layout y subtipo de layout"
         required: true
         schema:
           $ref: "#/definitions/recoverFiles"
       responses:
         200:
-          description: "successful operation"
+          description: "En caso exitoso, el servicio responderá un JSON en un array con los siguientes datos: Nombre del archivo cargado (fileName), fecha de aplicación (date), secuencial (identificator)y número de registros o transacciones del archivo (numberRecords)"
           schema:
             $ref: "#/definitions/responseRecoverFiles"
           headers:
@@ -187,7 +187,7 @@ paths:
         - "Nomina"
       operationId: "sendLayout"
       summary: "/nomina"
-      description: ''
+      description: 'Servicio que permite enviar un archivo comprimido (.ZIP) para ser persistido en base de datos'
       consumes:
         - multipart/form-data
       produces:
@@ -195,42 +195,39 @@ paths:
       parameters:
         - name: idLayout
           in: header
-          description: 'El id es el identificador  del layout que el servicio va validar'
+          description: 'El parámetro  idLayout es el identificador del layout del archivo que será enviado a persistir a base de datos. Por ejemplo: 1'
           required: true
           type: integer
         
         - name: client
           in: header
-          description: 'El id es el identificador  del layout que el servicio va validar'
+          description: 'El parámetro client es el identificador del cliente que envia el archivo a persistir. Por ejemplo: 235'
           required: true
           type: string
 
         - name: fileName
           in: header
-          description: 'El id es el identificador  del layout que el servicio va validar'
+          description: 'El parámetro fileName es el nombre del archivo que se envía. Por ejemplo: nomina150117'
           required: true
           type: string
    
         - name: description
           in: header
-          description: 'El id es el identificador  del layout que el servicio va validar'
+          description: 'El parámetro description es la descripción que se enviará para especificar alguna particularidad del archivo enviado. Por ejemplo: Se actualiza archivo para agregar nuevos empleados en la nómina 150117'
           required: true
           type: string
    
-
         - name: sequence
           in: header
-          description: 'El id es el identificador  del layout que el servicio va validar'
+          description: 'El parámetro sequence es el identificador que específica el número de veces que se sube un archivo. Por ejemplo: 1'
           required: true
           type:  integer
           
-          
         - name: applicationDate
           in: header
-          description: 'El id es el identificador  del layout que el servicio va validar'
+          description: 'El parámetro applicationDate es la fecha de aplicación del archivo a 6 digitos. Por ejemplo: ddmmaa (150117)'
           required: true
           type: string
-   
    
         - name: file
           in: formData
