@@ -4,7 +4,7 @@ info:
   version: "0.1.0"
   title: "Middleware"
 host: "200.39.24.141"
-basePath: "/"
+basePath: "/BEO"
 
 paths:
 
