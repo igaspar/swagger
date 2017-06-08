@@ -1,638 +1,538 @@
----
+
 swagger: "2.0"
 info:
-  description: "Documentación de los servicios Multiva Sprint 1  <a href='https://drive.google.com/open?id=0B_OaZlYG0i2ndHJUT3VFem5LWlk'>Documento Compartido</a>" 
+  description: "Documentación de los servicios de la Banca Genérica  " 
   version: "0.1.0"
-  title: "Grupo Financiero Multiva"
-host: "200.39.24.141:9090"
-basePath: "/BEO"
-tags:
-- name: "Core Bancario"
-  description: "Primer Login (Dinámico  y Estático)"
-  externalDocs:
-    description: "Primer Login"
-    url: "http://200.39.24.141:9090/docs"
+  title: "Middleware"
+host: "200.39.24.141"
+basePath: "/"
+
 paths:
-  /consultaDatosCliente:
-    post:
-      tags:
-      - "ESB Fuse"
-      description: "Realiza la consulta de los datos del cliente"
-      operationId: "/consultaDatosClientes"
-      parameters:
-      - in: "body"
-        name: "/consultaDatosClientes"
-        description: "Estructura de la respuesta del cliente"
-        required: true
-        schema:
-          $ref: "#/definitions/consultaDatosCliente-in"
-      responses:
-        200:
-          description: "estructura de la respuesta del cliente"
-          schema:
-            $ref: "#/definitions/consultaDatosCliente-res"
-        500:
-          description: "el servicio tiene un error"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el recurso"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-    x-swagger-router-controller: "/consultaDatosClientes"
-  /ConsultaDatosCliente:
-    post:
-      tags:
-      - "Middleware"
-      summary: "/ConsultaDatosCliente"
-      description: "Realiza la consulta de los datos del cliente"
-      operationId: "ConsultaDatosCliente"
-      parameters:
-      - in: "body"
-        name: "ConsultaDatosCliente"
-        description: "Estructura de la respuesta del cliente"
-        required: true
-        schema:
-          $ref: "#/definitions/consultaDatosCliente-in"
-      responses:
-        200:
-          description: "estructura de la respuesta del cliente"
-          schema:
-            $ref: "#/definitions/inline_response_200"
-        500:
-          description: "el servicio tiene un error"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el recurso"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-      x-swagger-router-controller: "ConsultaDatosCliente"
-  /primerAcceso:
-    post:
-      tags:
-      - "Middleware"
-      summary: "/primerAcceso"
-      description: "Realiza la consulta de los datos del cliente"
-      operationId: "primerAcceso"
-      parameters:
-      - name: id
-        in: "header"
-        description: 'El id es el identificador  del layout que el servicio va validar'
-        required: false
-        type: integer
 
-      responses:
-        200:
-          description: "estructura de la respuesta del cliente"
-          schema:
-            $ref: "#/definitions/inline_response_200_4"
-        500:
-          description: "el servicio tiene un error"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el recurso"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-      x-swagger-router-controller: "Cliente"
-  /MessagingCentralService:
-    post:
-      tags:
-      - "Middleware"
-      summary: "/MessagingCentralService"
-      description: "Realiza la consulta de los datos del cliente"
-      operationId: "MessagingCentralService"
-      parameters:
-      - in: "body"
-        name: "MessagingCentralService"
-        description: "Estructura de la respuesta del cliente"
-        required: true
-        schema:
-          $ref: "#/definitions/consultaDatosCliente-in"
-      responses:
-        200:
-          description: "estructura de la respuesta del cliente"
-          schema:
-            $ref: "#/definitions/inline_response_200"
-        500:
-          description: "el servicio tiene un error"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el recurso"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-      x-swagger-router-controller: "MessagingCentralService"
-  /consultaServiciosContratados:
-    post:
-      tags:
-      - "ESB Fuse"
-      summary: "/MessagingCentralService"
-      description: "Realiza la consulta de los datos del cliente"
-      operationId: "/MessagingCentralService"
-      parameters:
-      - in: "body"
-        name: "/MessagingCentralService"
-        description: "Estructura de la respuesta del cliente"
-        required: true
-        schema:
-          $ref: "#/definitions/consultaDatosCliente-in"
-      responses:
-        200:
-          description: "estructura de la respuesta del cliente"
-          schema:
-            $ref: "#/definitions/inline_response_200"
-        500:
-          description: "el servicio tiene un error"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el recurso"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-      x-swagger-router-controller: "/MessagingCentralService"
-  /consultaProductosContratados:
-    post:
-      tags:
-      - "ESB Fuse"
-      summary: "/MessagingCentral"
-      description: "Realiza la consulta de los datos del cliente"
-      operationId: "/MessagingCentral"
-      parameters:
-      - in: "body"
-        name: "/MessagingCentral"
-        description: "Estructura de la respuesta del cliente"
-        required: true
-        schema:
-          $ref: "#/definitions/consultaDatosCliente-in"
-      responses:
-        200:
-          description: "estructura de la respuesta del cliente"
-          schema:
-            $ref: "#/definitions/inline_response_200"
-        500:
-          description: "el servicio tiene un error"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el recurso"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-      x-swagger-router-controller: "/MessagingCentral"
-
-  /ServiciosContratados:
-    post:
-      tags:
-      - "Middleware"
-      summary: "CentralService"
-      description: "Realiza la consulta de los datos del cliente"
-      operationId: "CentralService"
-      parameters:
-      - in: "body"
-        name: "CentralService"
-        description: "Estructura de la respuesta del cliente"
-        required: true
-        schema:
-          $ref: "#/definitions/consultaDatosCliente-in"
-      responses:
-        200:
-          description: "estructura de la respuesta del cliente"
-          schema:
-            $ref: "#/definitions/inline_response_200"
-        500:
-          description: "el servicio tiene un error"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el recurso"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-      x-swagger-router-controller: "CentralService"
-  /ProductosContratados:
-    post:
-      tags:
-      - "Middleware"
-      summary: "/MessagingService"
-      description: "Realiza la consulta de los datos del cliente"
-      operationId: "/MessagingService"
-      parameters:
-      - in: "body"
-        name: "/MessagingService"
-        description: "Estructura de la respuesta del cliente"
-        required: true
-        schema:
-          $ref: "#/definitions/consultaDatosCliente-in"
-      responses:
-        200:
-          description: "estructura de la respuesta del cliente"
-          schema:
-            $ref: "#/definitions/inline_response_200"
-        500:
-          description: "el servicio tiene un error"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el recurso"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-      x-swagger-router-controller: "/MessagingService"
-
-  /Validaotp:
-    post:
-      tags:
-      - "Middleware"
-      description: "Servicio que realiza la validación del OTP"
-      operationId: "validaOTP"
-      parameters:
-      - in: "body"
-        name: "validaOTP"
-        description: "Se requiere la validación de VACMAN del usuario y su OTP"
-        required: true
-        schema:
-          $ref: "#/definitions/validaOTP"
-      responses:
-        200:
-          description: "Tipos de datos de la respuesta del servicio"
-          schema:
-            $ref: "#/definitions/inline_response_403_1"
-        500:
-          description: "error en el servicio"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el recurso"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-      x-swagger-router-controller: "OTP"
-    x-swagger-router-controller: "validaOTP"
-  /Cambiapassword:
-    post:
-      tags:
-      - "Middleware"
-      description: "Se requiere la validacion de la contraseña actual despues que\
-        \ se compare la nueva contraseña si los dos pasos son exitoso se requiere\
-        \ realizar una modificacion al atributo userPassword en LDAP para el numero\
-        \ del cleinte (uid=$numCliente,ou=people,dc=multiva,dc=mx) previamente obtenido\
-        \ en la entradas y se coloca el nuevo password proporcionado."
-      operationId: "cambioPwd"
-      parameters:
-      - in: "body"
-        name: "cambioPwd"
-        description: "Se requiere la validacion de la contraseña actual  "
-        required: true
-        schema:
-          $ref: "#/definitions/cambioPwd"
-      responses:
-        200:
-          description: "Estructura de la respuesta del servicio"
-          schema:
-            $ref: "#/definitions/inline_response_200_3"
-        500:
-          description: "error en el servicio"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el recurso"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        
-      x-swagger-router-controller: "Contrasea"
-    x-swagger-router-controller: "cambioPwd"
-  /Validacontrato:
-    post:
-      tags:
-      - "Middleware"
-      description: "Este servicio es para  cambiar la bandera de que el usuario acepto el contrato"
-      operationId: "contrato"
-      parameters:
-      - in: "body"
-        name: "contrato"
-        description: "Se requiere la validacion de la contraseña actual"
-        required: true
-        schema:
-          $ref: "#/definitions/contrato"
-      responses:
-        200:
-          description: "Tipos de datos de respuesta"
-          schema:
-            $ref: "#/definitions/inline_response_200_4"
-        500:
-          description: "error en el servicio"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el servicio"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-      x-swagger-router-controller: "Contrato"
-    x-swagger-router-controller: "contrato"
- 
-  /validaotp:
-    post:
-      tags:
-      - "ESB Fuse"
-      description: "Servicio que realiza la validación del OTP"
-      operationId: "validaOtp"
-      parameters:
-      - in: "body"
-        name: "validaOTP"
-        description: "Se requiere la validación de VACMAN del usuario y su OTP"
-        required: true
-        schema:
-          $ref: "#/definitions/validaOTP"
-      responses:
-        200:
-          description: "Tipos de datos de la respuesta del servicio"
-          schema:
-            $ref: "#/definitions/inline_response_403_1"
-        500:
-          description: "error en el servicio"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el recurso"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-      x-swagger-router-controller: "OTP"
-
-  /cambiapassword:
-    post:
-      tags:
-      - "ESB Fuse"
-      description: "Se requiere la validacion de la contraseña actual despues que\
-        \ se compare la nueva contraseña si los dos pasos son exitoso se requiere\
-        \ realizar una modificacion al atributo userPassword en LDAP para el numero\
-        \ del cleinte (uid=$numCliente,ou=people,dc=multiva,dc=mx) previamente obtenido\
-        \ en la entradas y se coloca el nuevo password proporcionado."
-      operationId: "cambioPwdd"
-      parameters:
-      - in: "body"
-        name: "cambioPwd"
-        description: "Se requiere la validacion de la contraseña actual  "
-        required: true
-        schema:
-          $ref: "#/definitions/cambioPwd"
-      responses:
-        200:
-          description: "Estructura de la respuesta del servicio"
-          schema:
-            $ref: "#/definitions/inline_response_200_3"
-        500:
-          description: "error en el servicio"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el recurso"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        
-      x-swagger-router-controller: "Contrasea"
-    x-swagger-router-controller: "cambioPwd"
-  /validacontrato:
-    post:
-      tags:
-      - "Seguridad Nologin"
-      description: "Este servicio es para  cambiar la bandera de que el usuario acepto el contrato"
-      operationId: "contratoo"
-      parameters:
-      - in: "body"
-        name: "contrato"
-        description: "Se requiere la validacion de la contraseña actual"
-        required: true
-        schema:
-          $ref: "#/definitions/contrato"
-      responses:
-        200:
-          description: "Tipos de datos de respuesta"
-          schema:
-            $ref: "#/definitions/inline_response_200_4"
-        500:
-          description: "error en el servicio"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-        404:
-          description: "no se encuentra el servicio"
-          schema:
-            $ref: "#/definitions/inline_response_200_2"
-      x-swagger-router-controller: "Contrato"
-    x-swagger-router-controller: "contrato"
-definitions:
-  consultaDatosCliente-in:
-    properties:
-      idPersona:
-        type: number
-        example: "1025478963"
   
-  consultaDatosCliente-res:
-    properties:
-      numCliente:
-        type: "integer"
-        format: "int64"
-        example: "1"
-      Nombre:
-        type: "string"
-        example: "1"
-      listaDirecciones:
-         type: "array"
-         items:
-          $ref: "#/definitions/listaDeDirecciones"
-      rfc:
-        type: "string"
-        example: "String"
-      listaTelefonos:
-        type: "array"
-        items:
-          $ref: "#/definitions/listaDeTelefonos"
-      listaEmails:
-        type: "array"
-        items:
-          $ref: "#/definitions/listaDeEmail"
-      tipoPersona:
-        type: "string"
-        example: "String"
-      estatus:
-        type: "string"
-        example: "String"
-      vip:
-        type: "string"
-        example: "String"
-      responseStatus:
-        type: "string"
-        example: "String"
-      responseError:
-        type: "string"
-        example: "String"
-      
-       
+  /recoverFiles:
+    post:
+      tags:
+      - "Nomina"
+      summary: "Logs user into the system"
+      description: "Servicio que recupera los archivos guardados en base de datos"
+      operationId: "recoverFiles"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Se envía un JSON como parámetro por 'body' con los datos de búsqueda: El cliente, el tipo de layout y subtipo de layout"
+        required: true
+        schema:
+          $ref: "#/definitions/recoverFiles"
+      responses:
+        200:
+          description: "En caso exitoso, el servicio responderá un JSON en un array con los siguientes datos: Nombre del archivo cargado (fileName), fecha de aplicación (date), secuencial (identificator)y número de registros o transacciones del archivo (numberRecords)"
+          schema:
+            $ref: "#/definitions/responseRecoverFiles"
+          headers:
+            X-Rate-Limit:
+              type: "integer"
+              format: "int32"
+              description: "calls per hour allowed by the user"
+            X-Expires-After:
+              type: "string"
+              format: "date-time"
+              description: "date in UTC when token expires"
+
+  /user/login:
+    post:
+      tags:
+      - "User"
+      summary: "Logs user into the system"
+      description: ""
+      operationId: "loginUser"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/Client"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/success"
+          headers:
+            X-Rate-Limit:
+              type: "integer"
+              format: "int32"
+              description: "calls per hour allowed by the user"
+            X-Expires-After:
+              type: "string"
+              format: "date-time"
+              description: "date in UTC when token expires"
+
+  /user/key:
+    post:
+      tags:
+      - "User"
+      summary: "Dinamic Key"
+      description: ""
+      operationId: "dinamicKey"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/key"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/keySuccess"
+          headers:
+            X-Rate-Limit:
+              type: "integer"
+              format: "int32"
+              description: "calls per hour allowed by the user"
+            X-Expires-After:
+              type: "string"
+              format: "date-time"
+              description: "date in UTC when token expires"
+
+
+  /nomina/filter:
+    post:
+      tags:
+      - "Nomina"
+      summary: "/nomina"
+      description: "Servicio que realiza la busqueda de layouts por el parametro type."
+      operationId: "filter"
+      parameters:
+      - in: "body"
+        name: "type"
+        description: "Parametro de busqueda en la base de datos de layouts"
+        required: true
+        schema:
+          $ref: "#/definitions/SearchLayoutByType-in"
+      responses:
+        200:
+          description: "Resultado de busqueda por parametro type"
+          schema:
+              $ref: "#/definitions/SearchLayoutByType-res"
+        default:
+          description: "No hay resultados de layouts para la busqueda realizada"
+          schema:
+              $ref: "#/definitions/EmptyArray"
           
-  listaDeEmail:
-    properties:
-      mail:
-        type: "string"
-        example: "String"
-      activo:
-        type: boolean
-        example: "Boolean"
-      tipoEmail:
-        type: "string"
-        example: "String"
-     
+      x-swagger-router-controller: "Filter"
+
+
+  
+  /nomina/getConfigLayout:
+    post:
+      tags:
+      - "Nomina"
+      summary: "/nomina"
+      description: "Servicio que realiza una consulta de los diferentes layout de nomina."
+      operationId: "layout"
+      parameters:
+      - in: "body"
+        name: "Existe layout"
+        description: "layout"
+        required: true
+        schema:
+          $ref: "#/definitions/FileDefinition-in"
+      responses:
+        200:
+          description: "Validacion de layout"
+          schema:
+              $ref: "#/definitions/FileDefinition-res"
+        default:
+          description: "layout no existe"
+          schema:
+            $ref: "#/definitions/Errorlayout"
+      x-swagger-router-controller: "Nomina"
+
+  /facultamiento/menu:
+    post:
+      tags:
+      - "Facultamiento"
+      summary: "/menu"
+      description: "menu bancanet"
+      operationId: "menu"
+      parameters:
+      - in: "body"
+        name: "menu"
+        description: "Consulta menu por usuario"
+        required: true
+        schema:
+          $ref: "#/definitions/menu-in"
+      responses:
+        200:
+          description: "responde menu"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+        403:
+          description: "Cliente no encontrado"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Facultamiento" 
+
+  /nomina/saveFile:
+    post:
+      tags:
+        - "Nomina"
+      operationId: "sendLayout"
+      summary: "/nomina"
+      description: 'Servicio que permite enviar un archivo comprimido (.ZIP) para ser persistido en base de datos'
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - name: idLayout
+          in: header
+          description: 'El parámetro  idLayout es el identificador del layout del archivo que será enviado a persistir a base de datos. Por ejemplo: 1'
+          required: true
+          type: integer
         
-  listaDeTelefonos:
+        - name: client
+          in: header
+          description: 'El parámetro client es el identificador del cliente que envia el archivo a persistir. Por ejemplo: 235'
+          required: true
+          type: string
+
+        - name: fileName
+          in: header
+          description: 'El parámetro fileName es el nombre del archivo que se envía. Por ejemplo: nomina150117'
+          required: true
+          type: string
+   
+        - name: description
+          in: header
+          description: 'El parámetro description es la descripción que se enviará para especificar alguna particularidad del archivo enviado. Por ejemplo: Se actualiza archivo para agregar nuevos empleados en la nómina 150117'
+          required: true
+          type: string
+   
+        - name: sequence
+          in: header
+          description: 'El parámetro sequence es el identificador que específica el número de veces que se sube un archivo. Por ejemplo: 1'
+          required: true
+          type:  integer
+          
+        - name: applicationDate
+          in: header
+          description: 'El parámetro applicationDate es la fecha de aplicación del archivo a 6 digitos. Por ejemplo: ddmmaa (150117)'
+          required: true
+          type: string
+   
+        - name: file
+          in: formData
+          description: 'file es el form-data que consume un archivo con .zip el cual contiene el archivo txt con las transacciones'
+          required: true
+          type: file
+      responses:
+          '200':
+            description: 'Valida la estructura del archivo que se adjunta'
+            schema:
+              $ref: '#/definitions/customModels'
+      x-swagger-router-controller: "Nomina"
+
+
+
+definitions:
+
+
+  recoverFiles:
+    type: "object"
     properties:
-      telefono:
+      client:
+        type: "string"
+        example: "banco"
+      type:
+        type: "string"
+        example: "Nómina"
+      subType:
+        type: "string"
+        example: "Multiva"
+  responseRecoverFiles:
+    type: "array"
+    items:
+            $ref: "#/definitions/responseRecoverFiles2"
+  responseRecoverFiles2:
+    properties:
+        fileName:
+            type: "string"
+            example: "string"
+        date:
+            type: "string"
+            example: "string"
+        identificator:
+            type: "string"
+            example: "integer"
+        description:
+            type: "string"
+            example: "string"
+        numberRecords:
+            type: "string"
+            example: integer
+        
+
+  SearchLayoutByType-in:
+    properties:
+      type:
+        type: "string"
+        example: "Nómina"
+
+  SearchLayoutByType-res:
+    type: "array"
+    items:
+      $ref: "#/definitions/SampleSearchByType"
+
+  SampleSearchByType:
+    properties:
+      type:
+         type: string
+         example: "string"
+      subtype:
+        type: string
+        example: "string"
+      idFileType:
         type: integer
-        example: "Integer"
-      tipoTelefono:
-        type: "string"
-        example: "String"
-    
+        example: "integer"
         
-        
-  listaDeDirecciones:
+  EmptyArray:
+    type: "array"
+    items: {}
+    example: []
+  
+  
+
+
+  Client:
+    type: "object"
     properties:
-      direccion:
+      Client:
         type: "string"
-        example: "String"
-      poblacion:
+        example: "Cliente1"
+      Password:
         type: "string"
-        example: "String"
-      ciudad:
+        example: "12345678"
+  success:
+    type: "object"
+    properties:
+        status:
+            type: integer
+            example: integer
+  key:
+    type: "object"
+    properties:
+        dinamicKey:
+            type: "string"
+            example: "123456"
+  keySuccess:
+    type: "object"
+    properties:
+        status:
+            type: integer
+            example: integer
+  
+
+  FileDefinition-in:
+    properties:
+      idFileType:
+        type: "integer"
+        example: 1
+  FileDefinition-res:
+    properties:
+      idFileType:
+        type: "integer"
+        example: "integer"
+      fileType:
         type: "string"
-        example: "String"
-      estado:
+        example: "string"
+      type:
         type: "string"
-        example: "String"
-      cp:
+        example: "string"
+      subtype:
         type: "string"
-        example: "String"
-      tipoDireccion:
+        example: "string"
+      validationSide:
+        type: "integer"
+        example: "integer"
+      keyLen:
+        type: "integer"
+        example: "integer"
+      lines:
+        $ref: "#/definitions/lines"
+
+  customModels:
+    type: "array"
+    items:
+      $ref: "#/definitions/customModelsItems"
+  customModelsItems:
+    properties:
+        idAutorizador:
+            type: "integer"
+            example: "integer"
+        nameAutorizador:
+            type: "string"
+            example: "string"
+
+
+  lines:
+    properties:
+      99:
+        $ref: "#/definitions/99"
+      OO:
+        $ref: "#/definitions/OO"
+      O1:
+        $ref: "#/definitions/OO"
+  99:
+    required:
+    - "len"
+    - "appears"
+    properties:
+      appears:
         type: "string"
-        example: "String"
-     
+        example: "string"
+      len:
+        type: "integer"
+        example: "integer"
+      fields:
+        type: "array"
+        items:
+          $ref: "#/definitions/fields"
+  OO:
+    required:
+    - "len"
+    - "appears"
+    properties:
+      appears:
+        type: "boolean"
+        example: "boolean"
+      len:
+        type: "integer"
+        example: "integer"
+      fieldFields:
+        type: "array"
+        items:
+          $ref: "#/definitions/fields"
+
+  fields:
+    properties:
+      name:
+        type: "string"
+        example: "string"
+      len:
+        type: "integer"
+        example: "integer"
+      start:
+        type: "integer"
+        example: "integer"
+      type:
+        type: "integer"
+        example: "integer"
+      validations:
+        type: "array"
+        items:
+          $ref: "#/definitions/validations"
+  validations:
+    properties:
+      validationSide:
+        type: "integer"
+        example: "integer"
+      rule:
+        type: "string"
+        example: "string"
+      params:
+        type: "array"
+        items:
+          $ref: "#/definitions/params"
+  params:
+    properties:
+      value:
+        type: "string"
+        example: string
+
+
+  menu-in:
+    properties:
+      id:
+        type: "integer"
+        example: 1
+    description: "Valores de regreso de clave dinamica"
+  #//////////////////////////////////////////////////////////////////////////////////////////////////// 
   inline_response_200:
     properties:
-      CodigoRespuesta:
-        type: "integer"
-        example: "integer"
-      DescripcionResp:
-        type: "string"
-        example: "string"
-      NumCliente:
-        type: "string"
-        example: "string"
-      Nombre:
-        type: "string"
-        example: "string"
-      Direccion:
-        type: "string"
-        example: "string"
-      Poblacion:
-        type: "string"
-        example: "string"
-      Ciudad:
-        type: "string"
-        example: "string"
-      Estado:
-        type: "string"
-        example: "string"
-      CP:
-        type: "string"
-        example: "string"
-      RFC:
-        type: "string"
-        example: "string"
-      Telefono1:
-        type: "string"
-        example: "string"
-      Telefono2:
-        type: "string"
-        example: "string"
-      Celular:
-        type: "string"
-        example: "string"
-      Mail:
-        type: "string"
-        example: "string"
-      TipoPersona:
-        type: "string"
-        example: "string"
-      Estatus:
-        type: "string"
-        example: "string"
-      Sucursal:
-        type: "string"
-        example: "string"
-      ESVIP:
-        type: "string"
-        example: "string"
- 
-  inline_response_403_1:
-     properties:
-      CodigoRespuesta:
-        type: "integer"
-        example: "integer"
-      DescRespuesta:
-        type: "string"
-        example: "string"
-      Antiphishing:
-        type: "integer"
-        example: "integer"
-  validaOTP:
-    properties:
-      Usuario:
-        type: "string"
-        example: "123456789"
-      OTP:
-        type: "string"
-        example: "12345tftg56577654"
-      Tipo:
+      id:
         type: "integer"
         example: 1
-  inline_response_200_2:
-    properties:
-      codigoError:
-        type: "integer"
-        example: "integer"
-      mensajeError:
-        type: "string"
-        example: "string"
+      Menu:
+        $ref: "#/definitions/menu"        
+    description: "Valores de regreso de clave dinamica"  
 
-  cambioPwd:
+  menu:
     properties:
-      Usuario:
+      id:
         type: "string"
-        example: "123456789"
-      Contraseña_original:
+        example: "01"
+      name:
         type: "string"
-        example: "12345tftg5657765412wq"
-      Nueva_contraseña:
+        example: "CONSULTAS"
+      componet:
         type: "string"
-        example: "12345tftg5657765412wq"
-      Comprueba_contraseña:
-        type: "string"
-        example: "12345tftg5657765412wq"
-  inline_response_200_3:
+        example: ""       
+      submenu:
+        type: "array"
+        items:
+         $ref: "#/definitions/submenu"         
+   
+  submenu:
     properties:
-      CodigoRespuesta:
-        type: "integer"
-        example: "integer"
-     
- 
-  contrato:
-    properties:
-      Usuario:
+    
+      id:
         type: "string"
-        example: "4333534"
-      ContratoAceptado:
-        type: "integer"
-        example: 1
-  
-  inline_response_200_4:
+        example: "0102"
+      name:
+        type: "string"
+        example: "Estados de cuenta"
+      componet:
+        type: "string"
+        example: ""   
+      submenu:
+        type: "array"
+        items:
+          $ref: "#/definitions/subsubmenu"          
+      
+  subsubmenu:
     properties:
-      CodigoRespuesta:
-        type: "integer"
-        example: "integer"
+    
+      id:
+        type: "string"
+        example: "010201"
+      name:
+        type: "string"
+        example: "En linea"
+      componet:
+        type: "string"
+        example: ""  
 
-  
+  Error:
+    properties:
+      Error:
+        type: "string"
+        example: "Error en la autenticacion"
+        description: "Respuesta de Login"
+    description: "Error de Respuesta dinamica"
+  Errorlayout:
+    properties:
+      Error:
+        type: "string"
+        example: "Error"
+        description: "Error"
+    description: "Error de Respuesta dinamica"
