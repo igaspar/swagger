@@ -10,7 +10,7 @@ basePath: "/"
 paths:
 
   
-  /recoverFiles:
+  /nomina/recoverFiles:
     post:
       tags:
       - "Nomina"
@@ -41,7 +41,7 @@ paths:
               format: "date-time"
               description: "date in UTC when token expires"
 
-  /user/login:
+  /login/login:
     post:
       tags:
       - "User"
@@ -72,7 +72,7 @@ paths:
               format: "date-time"
               description: "date in UTC when token expires"
 
-  /user/key:
+  /login/key:
     post:
       tags:
       - "User"
