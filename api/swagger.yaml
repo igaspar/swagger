@@ -44,7 +44,7 @@ paths:
   /login/login:
     post:
       tags:
-      - "User"
+      - "Login"
       summary: "Logs user into the system"
       description: ""
       operationId: "loginUser"
@@ -75,7 +75,7 @@ paths:
   /login/key:
     post:
       tags:
-      - "User"
+      - "Login"
       summary: "Dinamic Key"
       description: ""
       operationId: "dinamicKey"
