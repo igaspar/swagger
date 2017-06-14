@@ -1,4 +1,3 @@
-
 swagger: "2.0"
 info:
   description: "Documentación de los servicios de la Banca Genérica  " 
@@ -14,7 +13,7 @@ paths:
     post:
       tags:
       - "Nomina"
-      summary: "Logs user into the system"
+      summary: "Recupera archivos"
       description: "Servicio que recupera los archivos guardados en base de datos"
       operationId: "recoverFiles"
       produces:
@@ -31,15 +30,7 @@ paths:
           description: "En caso exitoso, el servicio responderá un JSON en un array con los siguientes datos: Nombre del archivo cargado (fileName), fecha de aplicación (date), secuencial (identificator)y número de registros o transacciones del archivo (numberRecords)"
           schema:
             $ref: "#/definitions/responseRecoverFiles"
-          headers:
-            X-Rate-Limit:
-              type: "integer"
-              format: "int32"
-              description: "calls per hour allowed by the user"
-            X-Expires-After:
-              type: "string"
-              format: "date-time"
-              description: "date in UTC when token expires"
+
 
   /login/login:
     post:
@@ -242,6 +233,30 @@ paths:
               $ref: '#/definitions/customModels'
       x-swagger-router-controller: "Nomina"
 
+  /nomina/recoverFilesDetails:
+    post:
+      tags:
+      - "Nomina"
+      summary: "Recupera detalle de archivos"
+      description: "Servicio para recuperar el detalle por archivo persistido en base de datos"
+      operationId: "recoverFilesDetails"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/recoverFilesDetails"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/responseRecoverFilesDetails"
+
+
+
 
 
 definitions:
@@ -265,6 +280,12 @@ definitions:
             $ref: "#/definitions/responseRecoverFiles2"
   responseRecoverFiles2:
     properties:
+        fileType:
+            type: "string"
+            example: "string"
+        client:
+            type: "string"
+            example: "string"
         fileName:
             type: "string"
             example: "string"
@@ -273,14 +294,19 @@ definitions:
             example: "string"
         identificator:
             type: "string"
-            example: "integer"
+            example: "string"
+        type:
+            type: "string"
+            example: "string"
+        subType:
+            type: "string"
+            example: "string"
         description:
             type: "string"
             example: "string"
         numberRecords:
             type: "string"
-            example: integer
-        
+            example: "string"        
 
   SearchLayoutByType-in:
     properties:
@@ -536,3 +562,36 @@ definitions:
         example: "Error"
         description: "Error"
     description: "Error de Respuesta dinamica"
+    
+
+  recoverFilesDetails:
+    type: "object"
+    properties:
+      fileType:
+        type: "string"
+        example: "1"
+      client:
+        type: "string"
+        example: "banco"
+      fileName:
+        type: "string"
+        example: "Nomina_15Jun17"
+      identificator:
+        type: "string"
+        example: "2"
+  responseRecoverFilesDetails:
+    type: "array"
+    items:
+            $ref: "#/definitions/responseRecoverFilesDetailsItems"
+  responseRecoverFilesDetailsItems:
+    properties:
+        lineType:
+            type: "string"
+            example: "string"
+        lineTypeCount:
+            type: "string"
+            example: "string"
+        ammount:
+            type: "string"
+            example: "string"
+
